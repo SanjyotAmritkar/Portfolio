@@ -19,7 +19,8 @@ function About() {
       { name: 'JavaScript', icon: <SiJavascript /> },
       { name: 'React.js', icon: <FaReact /> },
       { name: 'Node.js', icon: <FaNodeJs /> },
-      { name: 'HTML/CSS', icon: <SiJavascript /> }
+      { name: 'HTML/CSS', icon: <SiJavascript /> },
+      { name: 'Springboot', icon: <SiSpringboot /> }
     ],
     "Tools & Platforms": [
       { name: 'Git', icon: <FaDocker /> },
