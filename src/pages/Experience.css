@@ -1,0 +1,104 @@
+.experience-section {
+  padding: 60px 40px;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--accent);
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  perspective: 1200px;
+}
+
+.experience-inner {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+.experience-card.flipped .experience-inner {
+  transform: rotateY(180deg);
+}
+
+.experience-front,
+.experience-back {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  background-color: var(--card);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.experience-back {
+  transform: rotateY(180deg);
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.experience-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.company-logo {
+  width: 70px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.experience-meta h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.experience-meta span {
+  color: var(--accent);
+}
+
+.experience-duration {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #777;
+}
+
+.experience-description {
+  text-align: justify;
+}
+
+.flip-button {
+  background-color: var(--accent);
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.flip-button:hover {
+  background-color: #005fa3;
+}

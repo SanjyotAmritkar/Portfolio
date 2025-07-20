@@ -1,0 +1,96 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  background: linear-gradient(135deg, #f0f8ff, #e6f0ff);
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.hero-right {
+  flex: 2;
+  max-width: 700px;
+  text-align: center;
+}
+
+.hero-right h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.hero-right h1 .highlighted {
+  color: var(--name-color);
+}
+
+.hero-right h1 .last {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.hero-right h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.hero-right p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  color: var(--text);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-buttons a {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-buttons .primary {
+  background-color: var(--accent);
+  color: white;
+}
+
+.hero-buttons .primary:hover {
+  background-color: #005fa3;
+}
+
+.hero-buttons .secondary {
+  background-color: #444;
+  color: white;
+}
+
+.hero-buttons .secondary:hover {
+  background-color: #222;
+}
