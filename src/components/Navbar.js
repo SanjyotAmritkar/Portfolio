@@ -8,7 +8,7 @@ function Navbar({ setActiveSection, activeSection, darkMode, setDarkMode }) {
         <span className="highlighted">SANJYOT AMRITKAR</span>
       </div>
       <ul className="nav-links">
-        {["home", "about", "experience", "projects",  "contact"].map(section => (
+        {["home", "about", "experience", "skills", "projects",  "contact"].map(section => (
           <li key={section}>
             <button
               onClick={() => setActiveSection(section)}

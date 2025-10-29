@@ -41,11 +41,11 @@ const projectsData = [
   subtitle: "Visual insights into NYC’s housing equity and development",
   description: `This interactive dashboard empowers policymakers, urban planners, and researchers to analyze NYC’s affordable housing distribution and development patterns across all five boroughs. It reveals key insights into housing equity, trends, and resource allocation.`,
   features: [
-    "📊 Multi-layered housing data visualization with D3.js & Plotly.",
-    "🗺️ Geographic mapping of development patterns across NYC.",
-    "🏙️ Borough-wise comparisons for resource allocation and impact.",
-    "🔎 Interactivity for deep-dive filtering by year, project type, and borough.",
-    "📈 Equity analysis through socio-economic overlays."
+    "Multi-layered housing data visualization with D3.js & Plotly.",
+    "Geographic mapping of development patterns across NYC.",
+    "Borough-wise comparisons for resource allocation and impact.",
+    "Interactivity for deep-dive filtering by year, project type, and borough.",
+    "Equity analysis through socio-economic overlays."
   ],
   tech: "React, D3.js, Plotly, JavaScript, CSS, NYC OpenData",
   github: "https://github.com/SanjyotAmritkar/NYC-Affordable-Housing-Dashboard", // Replace with actual
@@ -54,7 +54,7 @@ const projectsData = [
 
   {
     title: "License Plate Detection",
-    description: "Built a YOLOv5 model for license plate detection using OpenCV. Integrated Firebase for real-time vehicle tracking.",
+    description: " Built a computer vision model using YOLOv5, OpenCV, and Python to accurately extract license plate numbers from images with 90% precision.Implemented real-time vehicle tracking by storing detected data in a centralized database using Pyrebase",
     tech: "Python, OpenCV, YOLOv5, Firebase, Computer Vision",
     github: "https://github.com/SanjyotAmritkar/License-Plate-Detection",
     demo: ""

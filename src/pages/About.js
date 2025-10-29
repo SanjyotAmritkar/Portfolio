@@ -66,63 +66,42 @@ function About() {
       <div className="container">
         <h2 className="section-title">About Me</h2>
         <p className="intro">
-          I’m a graduate student in Data Science at Stony Brook University with a background in Computer Science.
-          I specialize in AI/ML, data-driven systems, and full-stack development. I’m passionate about building intelligent,
-          scalable, and impactful solutions that combine research with real-world applications. My goal is to use technology
-          to solve meaningful problems — from fraud detection to NLP to data visualization.
+          I’m a Data Science graduate student at Stony Brook University with a strong foundation in software engineering and a deep passion for AI/ML. My experience spans developing enterprise-scale risk decisioning systems, cloud-native applications, and data-driven research projects in areas like fraud detection, healthcare, and generative AI.
+
+I thrive at the intersection of data and technology—designing intelligent, scalable solutions that turn complex challenges into actionable insights. Whether it’s building machine learning models, deploying AI-powered applications, or engineering robust software systems, I’m driven by the goal of using data to power innovation and enable smarter decision-making.
+
+At my core, I’m a data enthusiast who believes that combining rigorous research with practical engineering can create impactful solutions for real-world problems.
         </p>
 
         <div className="about-grid horizontal-split">
           {/* Education */}
           <div className="about-box education-box">
-            <h3>🎓 Education</h3>
+            <h3>Education</h3>
             <div className="edu-entry">
               <span className="edu-degree">Master's in Data Science</span><br />
               <span className="edu-school">Stony Brook University</span> · <span className="edu-year">(2024 – 2026)</span>
             </div>
             <div className="edu-entry">
               <span className="edu-degree">Bachelor of Technology in Computer Engineering</span><br />
-              <span className="edu-school">Cummins College of Engineering, Pune</span> · <span className="edu-year">(2019 – 2023)</span>
+              <span className="edu-school">Savitribai Phule Pune university , Pune</span> · <span className="edu-year">(2019 – 2023)</span>
             </div>
           </div>
 
-          {/* Skills */}
-          <div className="about-box">
-            <h3>🛠️ Technical Skills</h3>
-            <div className="tabs">
-              {Object.keys(skills).map((category, idx) => (
-                <button
-                  key={idx}
-                  className={`tab-btn ${activeTab === category ? "active" : ""}`}
-                  onClick={() => setActiveTab(category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-            <div className="skills-grid">
-              {skills[activeTab].map((skill, idx) => (
-                <div key={idx} className="skill-card">
-                  <span className="icon">{skill.icon}</span>
-                  <span className="label">{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          
         </div>
 
         {/* Achievements Full Width Below */}
         <div className="about-grid">
           <div className="about-box full-width">
-            <h3>🏅 Achievements & Leadership</h3>
+            <h3>Achievements & Leadership</h3>
             <div className="achievement-grid">
               <div className="achievement-card">
                 <h4>President - IGSA</h4>
-                <p>Led graduate student initiatives at Stony Brook University</p>
+                <p>Indian Graduate Student Association: Led graduate student initiatives at Stony Brook University</p>
               </div>
               <div className="achievement-card">
                 <h4>Python Tutor - CSTEP</h4>
-                <p>Taught foundational Python concepts to undergrads</p>
+                <p>Mentored and taught foundational Python concepts to undergrads</p>
               </div>
               <div className="achievement-card">
                 <h4>Top 15 Seminar (CSI)</h4>

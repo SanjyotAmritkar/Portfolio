@@ -1,9 +1,10 @@
+// Home.js
 import React from 'react';
 import './Home.css';
 import { motion } from 'framer-motion';
 import profileImage from '../assets/profile.jpg';
 
-function Home() {
+function Home({ setActiveSection }) {
   return (
     <div className="hero">
       <div className="hero-left">
@@ -45,8 +46,14 @@ function Home() {
         </motion.p>
 
         <div className="hero-buttons">
-          <a href="#projects" className="primary">View Projects</a>
-          <a href="/resume.pdf" className="secondary" target="_blank" rel="noreferrer">Download Resume</a>
+          {/* Change href to button that triggers setActiveSection */}
+          <button className="primary" onClick={() => setActiveSection("projects")}>
+            View Projects
+          </button>
+
+          <a href="/resume.pdf" className="secondary" target="_blank" rel="noreferrer">
+            Download Resume
+          </a>
         </div>
       </div>
     </div>

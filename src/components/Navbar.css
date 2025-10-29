@@ -3,12 +3,24 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 40px;
-  background-color: var(--bg);
-  color: var(--text);
-  position: sticky;
+  height: 70px; /* define height for spacing consistency */
+  
+  position: fixed;   /* 👈 change from sticky → fixed */
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+
+  background: rgba(0, 0, 0, 0.85); /* dark semi-transparent background (better on Vanta) */
+  backdrop-filter: blur(6px);      /* glass effect */
+  color: #ffffff;
+
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4); /* adjusted shadow for dark bg */
+}
+
+.navbar a,
+.navbar button {
+  color: #4dc3ff; /* links/buttons inside navbar */
 }
 
 .logo {
@@ -21,7 +33,6 @@
   color: var(--name-color);
   font-weight: 800;
 }
-
 
 .nav-links {
   list-style: none;
