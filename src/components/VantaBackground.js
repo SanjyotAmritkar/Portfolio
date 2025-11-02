@@ -15,64 +15,58 @@ function VantaBackground({
   scale = 1.0,
   scaleMobile = 1.0,
   // control renderer pixel ratio to improve perceived smoothness (lower = smoother on low-end)
-  pixelRatio = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 1.5) : 1,
   style = {},
 }) {
   const vantaRef = useRef(null);
   const effectRef = useRef(null);
 
   useEffect(() => {
-    if (!vantaRef.current) return;
+  const pixelRatio = typeof window !== 'undefined' ? Math.min(window.devicePixelRatio || 1, 1.5) : 1;
+  
+  if (!vantaRef.current) return;
 
-    // destroy existing effect before re-creating (if props changed)
+  // destroy existing effect before re-creating (if props changed)
+  if (effectRef.current) {
+    try {
+      effectRef.current.destroy();
+    } catch (e) {}
+    effectRef.current = null;
+  }
+
+  effectRef.current = NET({
+    el: vantaRef.current,
+    THREE: THREE,
+    mouseControls,
+    touchControls,
+    gyroControls: false,
+    minHeight: 200.0,
+    minWidth: 200.0,
+    scale,
+    scaleMobile,
+    color,
+    backgroundColor,
+    points,
+    maxDistance,
+    spacing,
+  });
+
+  try {
+    const renderer = effectRef.current && effectRef.current.renderer;
+    if (renderer && typeof renderer.setPixelRatio === "function") {
+      renderer.setPixelRatio(pixelRatio);
+    }
+  } catch (e) {}
+
+  return () => {
     if (effectRef.current) {
       try {
         effectRef.current.destroy();
-      } catch (e) {
-        // ignore
-      }
+      } catch (e) {}
       effectRef.current = null;
     }
+  };
+}, [maxDistance, spacing, points, color, backgroundColor, mouseControls, touchControls, scale, scaleMobile]);
 
-    effectRef.current = NET({
-      el: vantaRef.current,
-      THREE: THREE,
-      mouseControls,
-      touchControls,
-      gyroControls: false,
-      minHeight: 200.0,
-      minWidth: 200.0,
-      scale,
-      scaleMobile,
-      color,
-      backgroundColor,
-      points,
-      maxDistance,
-      spacing,
-    });
-
-    // Try to reduce jitter and improve smoothness by capping the renderer pixel ratio.
-    // Lowering pixel ratio can improve frame rate on slower devices.
-    try {
-      const renderer = effectRef.current && effectRef.current.renderer;
-      if (renderer && typeof renderer.setPixelRatio === "function") {
-        renderer.setPixelRatio(pixelRatio);
-      }
-    } catch (e) {
-      // ignore if renderer isn't exposed or operation fails
-    }
-
-    return () => {
-      if (effectRef.current) {
-        try {
-          effectRef.current.destroy();
-        } catch (e) {
-          // ignore
-        }
-        effectRef.current = null;
-      }
-    };
-  }, [maxDistance, spacing, points, color, backgroundColor, mouseControls, touchControls, scale, scaleMobile]);
 
   return (
     <div

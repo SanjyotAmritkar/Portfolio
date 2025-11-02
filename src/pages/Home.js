@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import './Home.css';
 import { motion } from 'framer-motion';
 import profileImage from '../assets/profile.jpg';
-import NeuralBackground from '../components/VantaBackground'; //WARNING :- DONT REMOVE - SSHINKAR
 
 function Home({ setActiveSection }) {
   const [startSubtitle, setStartSubtitle] = useState(false);

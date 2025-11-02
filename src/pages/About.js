@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './About.css';
 
 import {
@@ -10,8 +9,7 @@ import {
 } from 'react-icons/si';
 
 function About() {
-  const [activeTab, setActiveTab] = useState("Languages & Frameworks");
-
+  
   const skills = {
     "Languages & Frameworks": [
       { name: 'Java', icon: <FaJava /> },
