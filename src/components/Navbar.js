@@ -39,30 +39,39 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, toggleDarkMode }) =
 
       {/* Nav Links */}
       <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-        {["Home", "About", "Experience", "Skills", "Projects", "Contact", "Resume"].map(
-          (item) => (
-            <li key={item}>
-              <button
-                className={activeSection === item.toLowerCase() ? "active" : ""}
-                onClick={() => {
-                   const section = item.toLowerCase();
-  if (window.innerWidth <= 850) {
-    document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
-  } else {
-    setActiveSection(section);
-  }
-  setMenuOpen(false);
+  {["Home", "About", "Experience", "Skills", "Projects", "Contact"].map((item) => (
+    <li key={item}>
+      <button
+        className={activeSection === item.toLowerCase() ? "active" : ""}
+        onClick={() => {
+          const section = item.toLowerCase();
+          if (window.innerWidth <= 850) {
+            document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
+          } else {
+            setActiveSection(section);
+          }
+          setMenuOpen(false);
+        }}
+      >
+        {item}
+      </button>
+    </li>
+  ))}
 
-                  setActiveSection(item.toLowerCase());
-                  setMenuOpen(false);
-                }}
-              >
-                {item}
-              </button>
-            </li>
-          )
-        )}
-      </ul>
+  {/* Separate Resume item (open in new tab) */}
+  <li key="Resume">
+    <a
+      href="/resume.pdf"  // keep your actual file name
+      target="_blank"
+      rel="noopener noreferrer"
+      className="resume-link"
+      onClick={() => setMenuOpen(false)}  // closes hamburger after clicking
+    >
+      Resume
+    </a>
+  </li>
+</ul>
+
     </nav>
   );
 };
