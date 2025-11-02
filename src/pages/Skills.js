@@ -56,7 +56,7 @@ function Skills() {
       { name: 'Jira', icon: <SiJira /> },
       { name: 'Openshift', icon: <DiOpenshift /> }
     ],
-    "Databases": [
+    "Databases & Cloud": [
       { name: 'MySQL', icon: <SiMysql /> },
       { name: 'PostgreSQL', icon: <SiPostgresql /> },
       { name: 'MongoDB', icon: <SiMongodb /> },

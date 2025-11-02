@@ -69,7 +69,7 @@ function Experience() {
   };
 
   return (
-    <div className="experience-section" id="work-experience">
+    <section className="experience-section" id="experience">
       <h2 className="section-title">Professional Experience</h2>
       <div className="experience-list">
         {experiences.map((exp, index) => (
@@ -101,7 +101,7 @@ function Experience() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
