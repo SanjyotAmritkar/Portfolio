@@ -78,7 +78,7 @@ function Home({ setActiveSection }) {
     subtitleTimeout.current = setTimeout(() => setStartParagraph(true), 350);
   };
   return (
-    <div className="hero">
+  <div id="home" className="hero">
       <div className="hero-left">
         <motion.img
           src={profileImage}

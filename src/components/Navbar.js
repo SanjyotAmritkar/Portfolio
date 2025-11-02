@@ -44,14 +44,25 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, toggleDarkMode }) =
       <button
         className={activeSection === item.toLowerCase() ? "active" : ""}
         onClick={() => {
-          const section = item.toLowerCase();
-          if (window.innerWidth <= 850) {
-            document.getElementById(section)?.scrollIntoView({ behavior: "smooth" });
-          } else {
-            setActiveSection(section);
-          }
-          setMenuOpen(false);
-        }}
+  const section = item.toLowerCase();
+
+  // On mobile — scroll into view if section exists
+  if (window.innerWidth <= 850) {
+    const target = document.getElementById(section);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    } else if (section === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to top for Home
+    }
+  } else {
+    setActiveSection(section);
+  }
+
+  // ✅ Always update active section state
+  setActiveSection(section);
+  setMenuOpen(false);
+}}
+
       >
         {item}
       </button>

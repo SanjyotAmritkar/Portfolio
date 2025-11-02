@@ -49,7 +49,7 @@ function App() {
         setDarkMode={setDarkMode}
       />
 
-      {/* 📱 For mobile: render all stacked sections */}
+      {/* For mobile: render all stacked sections */}
       {isMobile ? (
         <>
           <Home setActiveSection={setActiveSection} darkMode={darkMode} />
