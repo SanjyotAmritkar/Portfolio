@@ -1,6 +1,6 @@
 .projects-section {
   padding: 60px 20px;
-  background-color: #f8f8f8;
+  background-color: var(--bg);
 }
 
 .container {
@@ -23,7 +23,8 @@
 }
 
 .project-card {
-  background-color: white;
+  background-color: var(--card);
+  backdrop-filter: blur(4px);
   padding: 20px;
   width: 300px;
   border-radius: 10px;

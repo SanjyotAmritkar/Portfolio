@@ -5,14 +5,12 @@
   padding: 18px 40px;
   height: 70px; /* define height for spacing consistency */
   
-  position: fixed;   /* 👈 change from sticky → fixed */
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 1000;
 
   background: rgba(0, 0, 0, 0.85); /* dark semi-transparent background (better on Vanta) */
-  backdrop-filter: blur(6px);      /* glass effect */
+  backdrop-filter: blur(4px);      /* glass effect */
   color: #ffffff;
 
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4); /* adjusted shadow for dark bg */
@@ -66,6 +64,8 @@
 .nav-links li .active {
   background-color: var(--hover-bg);
   color: var(--accent);
+  box-shadow: 0 4px 14px rgba(71,176,240,0.12);
+  transform: translateY(-2px);
 }
 
 /* Toggle Switch */

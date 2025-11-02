@@ -1,6 +1,6 @@
 .contact-section {
   padding: 60px 20px;
-  background-color: #ffffff;
+  background-color: var(--bg);
   text-align: center;
 }
 
@@ -12,7 +12,7 @@
 
 .contact-text {
   margin-bottom: 30px;
-  color: #444;
+  color: #fff;
   font-size: 1rem;
 }
 
@@ -43,6 +43,11 @@
   gap: 15px;
   max-width: 500px;
   margin: auto;
+  background-color: var(--card);
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .contact-form input,

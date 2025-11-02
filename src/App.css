@@ -3,7 +3,6 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f8f8f8;
   color: #333;
-  padding-top: 70px;
 }
 
 .App {
@@ -15,6 +14,7 @@ body {
   --hover-bg: #eaf6ff;
   --accent: #007acc;
   --name-color: #f8f6f6fa; /* fallback black for names */
+  --card: rgba(255, 255, 255, 0.72); /* translucent light card */
 }
 
 .dark-mode {
@@ -23,6 +23,7 @@ body {
   --hover-bg: #333;
   --accent: #4dc3ff;
   --name-color: #ffffff;
+  --card: rgba(17, 17, 17, 0.55); /* translucent dark card */
 }
 
 

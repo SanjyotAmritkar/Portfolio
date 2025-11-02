@@ -1,59 +1,111 @@
 .skills-section {
-  padding: 4rem 2rem;
-  background: var(--bg-light);
-  color: var(--text-color);
+  padding: 5rem 2.5rem;
+  /* keep the section neutral so we can surface a translucent centered container */
+  background: transparent;
+  color: var(--text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+  /* make the centered container look like the translucent cards used elsewhere */
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.10);
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.container:hover {
+  /* slightly whiter/brighter translucent on hover */
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 48px;
 }
 
 .tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
   gap: 1rem;
 }
 
 .tab-btn {
-  background: #f1f1f1;
+  background: #273a55;
+  backdrop-filter: blur(4px);
   border: none;
-  padding: 0.6rem 1.2rem;
-  font-weight: 500;
+  padding: 0.7rem 1.3rem;
+  font-weight: 600;
   cursor: pointer;
-  border-radius: 5px;
-  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  color: var(--text);
+  transition: all 0.28s ease-in-out;
+}
+
+.tab-btn:hover {
+  background-color: #1c2e48;
 }
 
 .tab-btn.active {
-  background-color: #007bff;
-  color: #fff;
+  background-color: var(--accent);
+  color: #141313;
 }
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  margin-top: 2.2rem;
 }
 
 .skill-card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 1rem;
+  background-color: var(--card);
+  backdrop-filter: blur(4px);
+  border-radius: 12px;
+  padding: 1.25rem 1.1rem;
   text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.07);
+  transition: transform 0.28s, box-shadow 0.28s;
 }
 
 .skill-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 34px rgba(0,0,0,0.12);
 }
 
 .skill-card .icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #007bff;
+  font-size: 2.4rem;
+  margin-bottom: 0.6rem;
+  color: var(--accent);
 }
 
-.label {
-  font-size: 0.9rem;
-  font-weight: 500;
+.skill-card .label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000; /* make skill label text black */
+}
+
+/* Responsive: scale down spacing and icon sizes on narrow screens */
+@media (max-width: 700px) {
+  .skills-section { padding: 3rem 1.2rem; }
+  .container { max-width: 100%; }
+  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
+  .skill-card { padding: 0.85rem; }
+  .skill-card .icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
+  .section-title { font-size: 1.5rem; margin-bottom: 1rem; }
+  /* reduce inner container padding on small screens so it doesn't feel too tall */
+  .container { padding-top: 1rem; padding-bottom: 1rem; border-radius: 10px; }
+  /* disable hover transform on touch devices to avoid layout jumps */
+  .container:hover { transform: none; box-shadow: 0 12px 40px rgba(0,0,0,0.10); background: rgba(255,255,255,0.06); }
 }

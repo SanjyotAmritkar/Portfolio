@@ -1,15 +1,39 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Skills.css';
 
 import {
-  FaJava, FaPython, FaAws, FaDocker, FaReact, FaNodeJs
+  FaJava, FaPython, FaAws, FaDocker, FaReact, FaNodeJs, FaDatabase
 } from 'react-icons/fa';
 import {
-  SiJavascript, SiSpringboot, SiMongodb, SiPostgresql, SiScikitlearn, SiTensorflow, SiPandas, SiKubernetes
+  SiJavascript, SiSpringboot, SiMongodb, SiPostgresql, SiScikitlearn, SiTensorflow, SiPandas, SiKubernetes, SiJupyter, SiTableau, SiJira, SiMysql, SiOracle,
+  SiNumpy, SiKeras, SiElasticsearch, SiPlotly, SiFlask, SiOllama, 
 } from 'react-icons/si';
-
+import {
+  GoGitBranch
+} from 'react-icons/go';
+import {
+  VscVscode, VscGraph
+} from 'react-icons/vsc';
+import {
+  LuBird
+} from 'react-icons/lu';
+import {
+  DiOpenshift
+} from 'react-icons/di';
+import { 
+  RiFirebaseFill, RiH2
+} from 'react-icons/ri';
+import { 
+  FcScatterPlot
+} from 'react-icons/fc';
+import { 
+  MdOutlineBlurCircular
+} from 'react-icons/md';
+import {
+  GiExplosiveMaterials
+} from 'react-icons/gi';
 function Skills() {
-  const [activeTab, setActiveTab] = useState("Languages & Frameworks");
+  const [activeTab, setActiveTab] = React.useState("Languages & Frameworks");
 
   const skills = {
     "Languages & Frameworks": [
@@ -22,41 +46,41 @@ function Skills() {
       { name: 'Springboot', icon: <SiSpringboot /> }
     ],
     "Tools & Platforms": [
-      { name: 'Git', icon: <FaDocker /> },
+      { name: 'Git', icon: <GoGitBranch /> },
       { name: 'Jenkins', icon: <FaDocker /> },
-      { name: 'VS Code', icon: <SiJavascript /> },
-      { name: 'Jupyter', icon: <SiJavascript /> },
-      { name: 'Power BI', icon: <SiJavascript /> },
-      { name: 'Tableau', icon: <SiJavascript /> },
-      { name: 'WEKA', icon: <SiJavascript /> },
-      { name: 'Jira', icon: <SiJavascript /> },
-      { name: 'Openshift', icon: <SiJavascript /> }
+      { name: 'VS Code', icon: <VscVscode /> },
+      { name: 'Jupyter', icon: <SiJupyter /> },
+      { name: 'Power BI', icon: <VscGraph /> },
+      { name: 'Tableau', icon: <SiTableau /> },
+      { name: 'WEKA', icon: <LuBird /> },
+      { name: 'Jira', icon: <SiJira /> },
+      { name: 'Openshift', icon: <DiOpenshift /> }
     ],
     "Databases": [
-      { name: 'MySQL', icon: <SiPostgresql /> },
+      { name: 'MySQL', icon: <SiMysql /> },
       { name: 'PostgreSQL', icon: <SiPostgresql /> },
       { name: 'MongoDB', icon: <SiMongodb /> },
-      { name: 'Oracle', icon: <SiPostgresql /> },
-      { name: 'Firebase', icon: <SiJavascript /> },
+      { name: 'Oracle', icon: <SiOracle /> },
+      { name: 'Firebase', icon: <RiFirebaseFill /> },
       { name: 'AWS', icon: <FaAws /> },
-      { name: 'H2', icon: <SiJavascript /> }
+      { name: 'H2', icon: <RiH2 /> }
     ],
     "Data Science & ML": [
       { name: 'Pandas', icon: <SiPandas /> },
-      { name: 'NumPy', icon: <SiJavascript /> },
+      { name: 'NumPy', icon: <SiNumpy /> },
       { name: 'Scikit-learn', icon: <SiScikitlearn /> },
-      { name: 'Keras', icon: <SiJavascript /> },
-      { name: 'Seaborn', icon: <SiJavascript /> },
+      { name: 'Keras', icon: <SiKeras /> },
+      { name: 'Seaborn', icon: <SiElasticsearch /> },
       { name: 'TensorFlow', icon: <SiTensorflow /> },
-      { name: 'Flask', icon: <SiJavascript /> },
-      { name: 'Matplotlib', icon: <SiJavascript /> },
-      { name: 'Plotly', icon: <SiJavascript /> },
+      { name: 'Flask', icon: <SiFlask /> },
+      { name: 'Matplotlib', icon: <FcScatterPlot /> },
+      { name: 'Plotly', icon: <SiPlotly /> },
       { name: 'Docker', icon: <FaDocker /> },
       { name: 'Kubernetes', icon: <SiKubernetes /> },
-      { name: 'D3.js', icon: <SiJavascript /> },
-      { name: 'ETL', icon: <SiJavascript /> },
-      { name: 'LLMs', icon: <SiJavascript /> },
-      { name: 'RAG', icon: <SiJavascript /> }
+      { name: 'D3.js', icon: <MdOutlineBlurCircular /> },
+      { name: 'ETL', icon: <FaDatabase /> },
+      { name: 'LLMs', icon: <SiOllama /> },
+      { name: 'RAG', icon: <GiExplosiveMaterials /> }
     ]
   };
 

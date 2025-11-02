@@ -65,13 +65,13 @@ function About() {
     <section id="about" className="about-section">
       <div className="container">
         <h2 className="section-title">About Me</h2>
-        <p className="intro">
-          I’m a Data Science graduate student at Stony Brook University with a strong foundation in software engineering and a deep passion for AI/ML. My experience spans developing enterprise-scale risk decisioning systems, cloud-native applications, and data-driven research projects in areas like fraud detection, healthcare, and generative AI.
-
-I thrive at the intersection of data and technology—designing intelligent, scalable solutions that turn complex challenges into actionable insights. Whether it’s building machine learning models, deploying AI-powered applications, or engineering robust software systems, I’m driven by the goal of using data to power innovation and enable smarter decision-making.
-
-At my core, I’m a data enthusiast who believes that combining rigorous research with practical engineering can create impactful solutions for real-world problems.
-        </p>
+        <div className="intro">
+          <ul>
+            <li>I’m a Data Science graduate student at Stony Brook University with a strong foundation in software engineering and a deep passion for AI/ML. My experience spans developing enterprise-scale risk decisioning systems, cloud-native applications, and data-driven research projects in areas like fraud detection, healthcare, and generative AI.</li>
+            <li>I thrive at the intersection of data and technology—designing intelligent, scalable solutions that turn complex challenges into actionable insights. Whether it’s building machine learning models, deploying AI-powered applications, or engineering robust software systems, I’m driven by the goal of using data to power innovation and enable smarter decision-making.</li>
+            <li>At my core, I’m a data enthusiast who believes that combining rigorous research with practical engineering can create impactful solutions for real-world problems.</li>
+          </ul>
+        </div>
 
         <div className="about-grid horizontal-split">
           {/* Education */}

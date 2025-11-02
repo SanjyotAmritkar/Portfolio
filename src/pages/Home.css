@@ -3,7 +3,11 @@
   align-items: center;
   justify-content: center;
   padding: 80px 40px;
-  background: linear-gradient(135deg, #f0f8ff, #e6f0ff);
+  /* make the hero container more transparent so the Vanta background shows through */
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   flex-wrap: wrap;
   gap: 50px;
 }
@@ -24,6 +28,23 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* hover effect for profile image (subtle scale and stronger shadow) */
+.profile-image {
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
+  will-change: transform;
+  cursor: pointer;
+}
+.profile-image:hover,
+.profile-image:focus {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+}
+
+.profile-image:focus {
+  outline: 3px solid rgba(71,176,240,0.15);
+  outline-offset: 6px;
+}
+
 .hero-right {
   flex: 2;
   max-width: 700px;
@@ -36,8 +57,35 @@
   margin-bottom: 0.3rem;
 }
 
+.heading-typing {
+  white-space: pre-wrap;
+}
+
+.subheading-typing {
+  white-space: pre-wrap;
+}
+
+.paragraph-typing {
+  white-space: pre-wrap;
+  font-size: 1.15rem; /* increase paragraph font as requested */
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 1px;
+  background-color: currentColor;
+  margin-left: 3px;
+  animation: typing-blink 1s steps(1,start) infinite;
+  vertical-align: bottom;
+}
+
+@keyframes typing-blink {
+  50% { opacity: 0; }
+}
+
 .hero-right h1 .highlighted {
-  color: #222;
+  /* make the highlighted name readable over the dark Vanta background */
+  color: #47b0f0;
 }
 
 .hero-right h1 .last {
@@ -48,16 +96,17 @@
 .hero-right h2 {
   font-size: 1.6rem;
   font-weight: 500;
-  margin-bottom: 1.5rem;
+  /* small top margin so h2 (which may appear after the paragraph) doesn't stick */
+  margin: 0.5rem 0 1.5rem;
   color: var(--text);
-  color: #555
 }
 
 .hero-right p {
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   line-height: 1.7;
   max-width: 700px;
-  margin: 0 auto 2rem;
+  /* add spacing above the paragraph so it sits further from the headings */
+  margin: 1rem auto 1.5rem;
   color: var(--text);
 }
 
@@ -95,6 +144,16 @@
   background-color: #005e9a; /* darker on hover */
 }
 
+/* make primary button lift slightly on hover for a nicer effect */
+.primary {
+  transition: background-color 220ms ease, transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
+}
+.primary:hover,
+.primary:focus {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
 
 .hero-buttons .secondary {
   background-color: #444;
@@ -105,10 +164,20 @@
   background-color: #222;
 }
 
+/* subtle hover for secondary (download) */
+.hero-buttons .secondary {
+  transition: background-color 220ms ease, transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
+}
+.hero-buttons .secondary:hover,
+.hero-buttons .secondary:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+}
+
 
 /* Home.css */
 .hero-right h1,
 .hero-right h2,
 .hero-right p {
-  color: #222; /* dark text */
+  color: var(--text); /* use the theme text color so content remains readable over dark backgrounds */
 }
