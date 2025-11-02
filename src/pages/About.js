@@ -1,13 +1,5 @@
 import './About.css';
 
-import {
-  FaJava, FaPython, FaAws, FaDocker, FaReact, FaNodeJs
-} from 'react-icons/fa';
-
-import {
-  SiJavascript, SiSpringboot, SiMongodb, SiPostgresql, SiScikitlearn, SiTensorflow, SiPandas, SiKubernetes
-} from 'react-icons/si';
-
 function About() {
 
   return (

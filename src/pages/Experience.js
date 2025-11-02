@@ -1,32 +1,35 @@
 import React, { useState } from 'react';
 import './Experience.css';
-import barclaysLogo from '../assets/barclays.png'; // Make sure logo exists
+import barclaysLogo from '../assets/barclays.png';
 import nextrackerLogo from '../assets/nextracker.png';
 import sbulogo from '../assets/sbulogo.jpg';
 
 const experiences = [
+  {
+    title: "Research Assistant",
+    company: "Stony Brook University",
+    duration: "July 2025 – Present",
+    logo: sbulogo,
+    description: [
+      "Leading the design and development of EDExpertAITriage, an AI-assisted emergency triage platform integrating React, FastAPI, PostgreSQL, and LLMs for real-time clinical decision support.",
+      "Architected a modular microservices system enabling dynamic triage summaries and OPQRST-style follow-up questions through LLM-driven inference.",
+      "Exploring Graph-RAG pipelines and knowledge graph integration for enhanced retrieval and contextual reasoning in clinical queries.",
+      "Reduced manual nurse questioning load by ~40%, streamlining patient intake and improving triage accuracy and speed.",
+      "Collaborating with biomedical informatics faculty to evaluate ethical AI and explainability in healthcare applications."
+    ]
+  },
+
   {
     title: "AI Software Engineering Intern",
     company: "Nextracker",
     duration: "June 2025 – August 2025",
     logo: nextrackerLogo,
     description: [
-      "Contributed to the development of LLM-based copilots to automate internal solar analytics workflows.",
-      "Built and deployed AI-powered backend pipelines in Python using FastAPI and AWS Lambda.",
-      "Integrated Open Web UI with enterprise infrastructure to enable natural language querying across solar datasets."
-    ]
-  },
-{
-    title: "Research Assistant",
-    company: "Stony Brook University",
-    duration: "July 2025 – Present",
-    logo: sbulogo,
-    description: [
-    "Designed and developed EDExpertAITriage, a microservices-based AI assistant for emergency department triage.",
-    "Built a dynamic chatbot interface using React and TailwindCSS for real-time patient interaction.",
-    "Implemented modular backend services using FastAPI and PostgreSQL for symptom capture, urgency scoring, and follow-up generation.",
-    "Integrated LLM service (PMC-LLaMA) with Huggingface for real-time clinical summarization and medical question generation.",
-    "Ensured clean architecture with separate services for API gateway, data capture, and LLM-based triage logic."
+      "Developed LLM-powered Proofs of Concept (PoCs) for Nextracker’s Navigator and DataHub platforms using GPT-3.5/4, LLaMA 3, and Mistral via Azure AI Foundry.",
+      "Implemented Retrieval-Augmented Generation (RAG) pipelines using Go, Angular, and Azure Cognitive Search, cutting issue triage time by ~40%.",
+      "Benchmarked cloud vs. on-prem LLMs for latency, accuracy, and cost — delivering a hybrid AI deployment roadmap for scalable inference workloads.",
+      "Enhanced model reliability through custom prompt templates, embedding optimization, and semantic filtering pipelines.",
+      "Contributed to an internal AI Strategy Document, outlining enterprise use cases for LLM copilots in renewable energy operations."
     ]
   },
 
@@ -36,23 +39,27 @@ const experiences = [
     duration: "July 2023 – July 2024",
     logo: barclaysLogo,
     description: [
-      "Led development of risk decisioning APIs and automation systems using Java and Spring Boot.",
-      "Integrated AWS solutions (S3, Glue, DynamoDB) and CI/CD with Jenkins.",
-      "Managed production support and real-time issue resolution."
+      "Engineered RESTful APIs using Java, Spring Boot, and Gradle, integrating with AWS (S3, Glue, DynamoDB) for secure, scalable risk decisioning workflows.",
+      "Developed a React–Spring Boot logging dashboard for real-time API tracking, improving debugging efficiency by 90%.",
+      "Optimized deployment pipelines via Jenkins, SonarQube, and JUnit, ensuring continuous integration and test coverage.",
+      "Worked cross-functionally with DevOps and Data Engineering teams to design fault-tolerant microservices architectures aligned with bank compliance standards.",
+      "Enhanced API response performance and introduced versioned endpoint strategies reducing downtime during service updates."
     ]
   },
+
   {
     title: "Software Engineering Intern",
     company: "Barclays",
     duration: "June 2022 – August 2022",
     logo: barclaysLogo,
     description: [
-      "Built an analytics dashboard using Spring Boot and React.",
-      "Collaborated on building a fraud detection system using transaction data."
+      "Built a full-stack Vulnerability Analysis Dashboard using Java–Spring Boot and React, consolidating data from Veracode, Pentest, and APAAS reports.",
+      "Automated vulnerability triaging and risk scoring through backend–database integration, accelerating remediation cycles by 45%.",
+      "Implemented visual analytics and reporting features using industry visualization libraries like Chart.js, D3.js for efficient vulnebarility tracking and analysis.",
+      "Collaborated with senior developers to refactor legacy modules into RESTful microservices for better maintainability."
     ]
   }
 ];
-
 
 function Experience() {
   const [flippedIndex, setFlippedIndex] = useState(null);
