@@ -1,5 +1,21 @@
 const projectsData = [
   {
+    title: "MediVault AI agent: " ,
+    description: "Developed an AI-driven document analysis system using RAG architecture with FAISS and LLMs. Implemented a Flask backend and React frontend for seamless user interaction.",
+    tech: "Python, Flask, React, FAISS, OpenAI, LangChain",
+    github: " ",
+    demo: ""
+  },
+
+  {
+    title: "MediRAG: AI-Powered Medical Research Discovery Engine",
+    description: "Built a supervised ML pipeline on UCI Census data using Random Forest, achieving 97.6% recall for high-income prediction. Performed AIC-based feature selection and model evaluation via AUC and ROC.",
+    tech: "Python, flask, Streamlit, Sentence Transformers (e5-small), Microsoft Phi-3-mini, FAISS, PySpark, Pandas, PyArrow, HPC/Slurm",
+    github: "https://github.com/SanjyotAmritkar/MediRAG.git",
+    demo: ""
+  },
+  
+  {
     title: "Income Prediction using Machine Learning",
     description: "Built a supervised ML pipeline on UCI Census data using Random Forest, achieving 97.6% recall for high-income prediction. Performed AIC-based feature selection and model evaluation via AUC and ROC.",
     tech: "Python, Scikit-learn, Pandas, Seaborn",
