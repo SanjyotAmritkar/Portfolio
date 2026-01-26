@@ -1,9 +1,9 @@
 const projectsData = [
   {
-    title: "MediVault AI agent: " ,
+    title: "MediVault: AI-Powered Medical Claims Automation System " ,
     description: "Developed an AI-driven document analysis system using RAG architecture with FAISS and LLMs. Implemented a Flask backend and React frontend for seamless user interaction.",
     tech: "Python, Flask, React, FAISS, OpenAI, LangChain",
-    github: " ",
+    github: "https://github.com/SanjyotAmritkar/Medivault-AI-Agent",
     demo: ""
   },
 
@@ -29,21 +29,31 @@ const projectsData = [
     github: "https://github.com/SanjyotAmritkar/Ecommerce-RAG-Chatbot",
     demo: ""
   },
+
+
 {
   title: "Trial Match",
   subtitle: "Swipe-based clinical trial matching platform",
   description: `TrialMatch revolutionizes clinical trial recruitment by offering a Tinder-style interface that connects users with research organizations. Using advanced NLP tools like Clinphen and Phrank, it maps user symptoms to HPO terms and finds matching trials.`,
   features: [
-    "⚕️ Swipe-based participant-trial matching for enhanced UX.",
-    "🧠 Symptom-to-HPO mapping using Clinphen for smart self-diagnosis.",
-    "🔍 Disease matching via Phrank to connect with relevant trials.",
-    "🧬 Support for rare disease identification and recruitment.",
-    "📩 Instant dual-sided notifications on match confirmation."
+    "Swipe-based participant-trial matching for enhanced UX.",
+    "Symptom-to-HPO mapping using Clinphen for smart self-diagnosis.",
+    "Disease matching via Phrank to connect with relevant trials.",
+    "Support for rare disease identification and recruitment.",
+    "Instant dual-sided notifications on match confirmation."
   ],
   tech: "Python, React, FastAPI, MongoDB, Clinphen, Phrank",
   github: "https://github.com/SanjyotAmritkar/Trial-Match",
   demo: "", // Add demo link if any
 },
+
+{
+    title: "Crime Trends Analysis",
+    description: "Analyzed and clustered Indian crime data using R and unsupervised ML to detect trends by crime category. Achieved 86.6% accuracy in crime severity classification using XGBoost, Logistic Regression, and Random Forest.",
+    tech: "R, K-Means, XGBoost, Logistic Regression, Random Forest, Machine Learning",
+    github: "https://github.com/SanjyotAmritkar/Crime-Trends-analysis-using-R",
+    demo: ""
+  },
 
   {
     title: "Fraud Detection with Differential Privacy",
@@ -80,13 +90,6 @@ const projectsData = [
     description: "Built a stock arbitrage system to recommend buy/sell actions between BSE/NSE markets based on pricing anomalies. Achieved 92% accuracy using Spring Boot, SQL, and AngularJS.",
     tech: "Java, Spring Boot, AngularJS, SQL, Full-stack Development",
     github: "https://github.com/SanjyotAmritkar/BSE-NSE-Arbitrage-Recommendation-System",
-    demo: ""
-  },
-  {
-    title: "Crime Trends Analysis",
-    description: "Analyzed and clustered Indian crime data using R and unsupervised ML to detect trends by crime category. Achieved 86.6% accuracy in crime severity classification using XGBoost, Logistic Regression, and Random Forest.",
-    tech: "R, K-Means, XGBoost, Logistic Regression, Random Forest, Machine Learning",
-    github: "https://github.com/SanjyotAmritkar/Crime-Trends-analysis-using-R",
     demo: ""
   }
   
