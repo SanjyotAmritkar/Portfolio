@@ -3,15 +3,17 @@ import NET from "vanta/dist/vanta.net.min";
 import * as THREE from "three";
 
 function VantaBackground({
-  // match the script snippet defaults you posted
+  // original density restored - the network is now frozen (see below) instead
+  // of thinned out, so it can look like the earlier version again
   maxDistance = 15,
   spacing = 16,
   points = 10,
   color = 0x47b0f0,
   // slightly darker blue for stronger contrast
   backgroundColor = 0x051025,
-  mouseControls = true,
-  touchControls = true,
+  // no interaction on a static background
+  mouseControls = false,
+  touchControls = false,
   scale = 1.0,
   scaleMobile = 1.0,
   // control renderer pixel ratio to improve perceived smoothness (lower = smoother on low-end)
@@ -57,7 +59,23 @@ function VantaBackground({
     }
   } catch (e) {}
 
+  // Vanta's NET effect has no "speed"/"pause" option that actually stops the
+  // point drift, so freeze it manually: let it paint a couple of real frames
+  // (so the canvas isn't blank), then cancel its internal rAF loop. The last
+  // rendered frame stays on the canvas as a static image.
+  let freezeFrame1, freezeFrame2;
+  freezeFrame1 = window.requestAnimationFrame(() => {
+    freezeFrame2 = window.requestAnimationFrame(() => {
+      const effect = effectRef.current;
+      if (effect && effect.req) {
+        window.cancelAnimationFrame(effect.req);
+      }
+    });
+  });
+
   return () => {
+    window.cancelAnimationFrame(freezeFrame1);
+    window.cancelAnimationFrame(freezeFrame2);
     if (effectRef.current) {
       try {
         effectRef.current.destroy();

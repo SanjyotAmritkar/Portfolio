@@ -1,7 +1,7 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f8f8;
+  font-family: var(--font-body);
+  background-color: #051025;
   color: #333;
 }
 
@@ -10,20 +10,29 @@ body {
 }
 :root {
   --bg: transparent;
-  --text: #fffdfd;   /* general fallback for most pages */
-  --hover-bg: #eaf6ff;
-  --accent: #007acc;
-  --name-color: #f8f6f6fa; /* fallback black for names */
-  --card: rgba(255, 255, 255, 0.72); /* translucent light card */
-}
-
-.dark-mode {
-  --bg: #1e1e1e;
-  --text: #f0f0f0;   /* light text for dark mode */
-  --hover-bg: #333;
+  --text: #fffdfd;
   --accent: #4dc3ff;
   --name-color: #ffffff;
-  --card: rgba(17, 17, 17, 0.55); /* translucent dark card */
+}
+
+h1, h2, h3, h4, .logo, .section-title {
+  font-family: var(--font-heading);
+}
+
+/* shared heading style for every section ("About Me", "Projects", etc.) */
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 28px;
+  }
 }
 
 html {
@@ -52,6 +61,8 @@ html, body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 @media (max-width: 900px) {
+  /* each section owns its own mobile padding (see that page's CSS);
+     this just gives every section a consistent slight inset on mobile */
   section,
   .hero,
   .about-section,
@@ -60,7 +71,6 @@ html, body {
   .skills-section,
   .contact-section {
     margin: 20px auto;
-    padding: 40px 20px;
     width: 90%;
   }
 }

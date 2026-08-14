@@ -3,46 +3,95 @@
   align-items: center;
   justify-content: center;
   padding: 80px 40px;
-  /* make the hero container more transparent so the Vanta background shows through */
-  background-color: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  /* translucent card like every other section, so the Vanta background shows through */
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   flex-wrap: wrap;
   gap: 50px;
 }
 
 .hero-left {
+  position: relative;
   flex: 1;
   max-width: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-left { animation: none; }
+}
+
+/* soft blurred glow behind the photo for depth */
+.hero-blob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 340px;
+  max-width: 90%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(71,176,240,0.32), rgba(122,111,240,0.16) 55%, transparent 75%);
+  filter: blur(24px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* gradient ring frame around the photo, fixed 1:1 so it's always a true circle */
+.profile-frame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 6px;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px rgba(71,176,240,0.22);
+  animation: ring-pulse 4s ease-in-out infinite;
+  cursor: pointer;
+}
+
+@keyframes ring-pulse {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 20px 50px rgba(71,176,240,0.2); }
+  50% { box-shadow: 0 0 0 1px rgba(255,255,255,0.09), 0 24px 64px rgba(122,111,240,0.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-frame { animation: none; }
 }
 
 .profile-image {
   width: 100%;
-  max-width: 280px;
-  height: auto;
+  height: 100%;
+  display: block;
+  object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* hover effect for profile image (subtle scale and stronger shadow) */
-.profile-image {
-  transition: transform 220ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
+  background: #0b1622;
+  transition: transform 280ms cubic-bezier(.2,.9,.3,1);
   will-change: transform;
-  cursor: pointer;
 }
-.profile-image:hover,
+
+.profile-frame:hover .profile-image,
 .profile-image:focus {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+  transform: scale(1.05);
 }
 
 .profile-image:focus {
-  outline: 3px solid rgba(71,176,240,0.15);
-  outline-offset: 6px;
+  outline: 3px solid rgba(71,176,240,0.25);
+  outline-offset: 4px;
 }
 
 .hero-right {
@@ -58,10 +107,6 @@
 }
 
 .heading-typing {
-  white-space: pre-wrap;
-}
-
-.subheading-typing {
   white-space: pre-wrap;
 }
 
@@ -93,14 +138,6 @@
   font-weight: 800;
 }
 
-.hero-right h2 {
-  font-size: 1.6rem;
-  font-weight: 500;
-  /* small top margin so h2 (which may appear after the paragraph) doesn't stick */
-  margin: 0.5rem 0 1.5rem;
-  color: var(--text);
-}
-
 .hero-right p {
   font-size: 1.15rem;
   line-height: 1.7;
@@ -108,6 +145,31 @@
   /* add spacing above the paragraph so it sits further from the headings */
   margin: 1rem auto 1.5rem;
   color: var(--text);
+}
+
+.role-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 1.75rem;
+}
+
+.role-badge {
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.role-badge:hover {
+  background: var(--glass-bg-strong);
+  border-color: rgba(71,176,240,0.4);
+  transform: translateY(-2px);
 }
 
 .hero-buttons {
@@ -118,66 +180,49 @@
   flex-wrap: wrap;
 }
 
-.hero-buttons a {
+.primary,
+.hero-buttons .secondary {
+  display: inline-block;
   padding: 12px 24px;
   font-size: 1rem;
-  font-weight: 500;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.primary {
-  background-color: #007acc;
-  color: white;
-  padding: 10px 20px;
-  border: none; /* remove the default border */
-  border-radius: 10px; /* rounded corners */
   font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: none; /* remove box shadow if any */
-  transition: background-color 0.3s ease;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
 }
 
-.primary:hover {
-  background-color: #005e9a; /* darker on hover */
-}
-
-/* make primary button lift slightly on hover for a nicer effect */
 .primary {
-  transition: background-color 220ms ease, transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
+  background: var(--accent-gradient);
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: filter 220ms ease, transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
 }
+
 .primary:hover,
 .primary:focus {
+  filter: brightness(1.08);
   transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  box-shadow: var(--accent-glow);
 }
 
 
 .hero-buttons .secondary {
-  background-color: #444;
+  background-color: rgba(255,255,255,0.08);
+  border: 1px solid var(--glass-border);
   color: white;
-}
-
-.hero-buttons .secondary:hover {
-  background-color: #222;
-}
-
-/* subtle hover for secondary (download) */
-.hero-buttons .secondary {
   transition: background-color 220ms ease, transform 180ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms ease;
 }
+
 .hero-buttons .secondary:hover,
 .hero-buttons .secondary:focus {
+  background-color: rgba(255,255,255,0.16);
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.10);
+  box-shadow: var(--shadow-sm);
 }
-
 
 /* Home.css */
 .hero-right h1,
-.hero-right h2,
 .hero-right p {
   color: var(--text); /* use the theme text color so content remains readable over dark backgrounds */
 }
@@ -196,16 +241,17 @@
     font-size: 3rem;
   }
 
-  .hero-right h2 {
-    font-size: 1.8rem;
-  }
-
   .hero-right p {
     font-size: 1.2rem;
   }
 
-  .profile-image {
+  .profile-frame {
     max-width: 230px;
+  }
+
+  .hero-blob {
+    width: 280px;
+    height: 280px;
   }
 }
 
@@ -221,13 +267,14 @@
     font-size: 1.8rem;
   }
 
-  .hero-right h2 {
-    font-size: 1.1rem;
-  }
-
   .hero-right p {
     font-size: 0.95rem;
     margin: 0 1rem 1.2rem;
+  }
+
+  .role-badge {
+    font-size: 0.85rem;
+    padding: 7px 14px;
   }
 
   .hero-buttons {

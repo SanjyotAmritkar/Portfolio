@@ -5,33 +5,13 @@
   color: var(--text);
 }
 
-.container {
+.skills-container {
   max-width: 1200px;
   margin: auto;
   padding: 0 16px;
-  /* make the centered container look like the translucent cards used elsewhere */
-  background: rgba(255,255,255,0.04);
-  backdrop-filter: blur(8px);
-  border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.10);
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  transition: background-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 }
 
-.container:hover {
-  /* slightly whiter/brighter translucent on hover */
-  background: rgba(255,255,255,0.18);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.14);
-  transform: translateY(-2px);
-}
-
-.section-title {
-  font-size: 2.2rem;
-  color: var(--accent);
-  text-align: center;
-  margin-bottom: 48px;
-}
+/* ---------- category tabs ---------- */
 
 .tabs {
   display: flex;
@@ -42,9 +22,9 @@
 }
 
 .tab-btn {
-  background: #273a55;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   backdrop-filter: blur(4px);
-  border: none;
   padding: 0.7rem 1.3rem;
   font-weight: 600;
   cursor: pointer;
@@ -54,13 +34,18 @@
 }
 
 .tab-btn:hover {
-  background-color: #1c2e48;
+  border-color: color-mix(in srgb, var(--tab-accent, var(--accent)) 55%, transparent);
+  color: var(--tab-accent, var(--accent));
 }
 
 .tab-btn.active {
-  background-color: var(--accent);
-  color: #141313;
+  background-color: var(--tab-accent, var(--accent));
+  border-color: var(--tab-accent, var(--accent));
+  color: #0b1622;
+  box-shadow: 0 8px 20px color-mix(in srgb, var(--tab-accent, var(--accent)) 40%, transparent);
 }
+
+/* ---------- skills grid ---------- */
 
 .skills-grid {
   display: grid;
@@ -70,57 +55,50 @@
 }
 
 .skill-card {
-  background-color: var(--card);
-  backdrop-filter: blur(4px);
-  border-radius: 12px;
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-md);
   padding: 1.25rem 1.1rem;
   text-align: center;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.07);
-  transition: transform 0.28s, box-shadow 0.28s;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.28s, box-shadow 0.28s, background-color 0.28s, border-color 0.28s;
 }
 
 .skill-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 34px rgba(0,0,0,0.12);
+  background-color: var(--glass-bg-strong);
+  border-color: color-mix(in srgb, var(--card-accent, var(--accent)) 45%, transparent);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--card-accent, var(--accent)) 32%, transparent);
 }
 
 .skill-card .icon {
   font-size: 2.4rem;
   margin-bottom: 0.6rem;
-  color: var(--accent);
+  color: var(--card-accent, var(--accent));
 }
 
 .skill-card .label {
   font-size: 1rem;
   font-weight: 600;
-  color: #000000; /* make skill label text black */
+  color: var(--text);
 }
 
 /* Responsive: scale down spacing and icon sizes on narrow screens */
-@media (max-width: 700px) {
-  .skills-section { padding: 3rem 1.2rem; }
-  .container { max-width: 100%; }
-  .skills-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
-  .skill-card { padding: 0.85rem; }
-  .skill-card .icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
-  .section-title { font-size: 1.5rem; margin-bottom: 1rem; }
-  /* reduce inner container padding on small screens so it doesn't feel too tall */
-  .container { padding-top: 1rem; padding-bottom: 1rem; border-radius: 10px; }
-  /* disable hover transform on touch devices to avoid layout jumps */
-  .container:hover { transform: none; box-shadow: 0 12px 40px rgba(0,0,0,0.10); background: rgba(255,255,255,0.06); }
-}
-
 @media (max-width: 900px) {
   .skills-section {
     padding: 50px 20px;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
   }
 
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1rem;
   }
+}
+
+@media (max-width: 700px) {
+  .skills-container { max-width: 100%; }
+  .skill-card { padding: 0.85rem; }
+  .skill-card .icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
+  .tab-btn { padding: 0.85rem 1.3rem; min-height: 44px; }
 }

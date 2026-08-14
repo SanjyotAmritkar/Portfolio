@@ -4,11 +4,23 @@ import './Home.css';
 import { motion } from 'framer-motion';
 import profileImage from '../assets/profile.jpg';
 
+const roles = ["Data Science", "AI / ML", "Software Engineering"];
+
+const badgeContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.08 } },
+};
+
+const badgeItem = {
+  hidden: { opacity: 0, y: 8 },
+  visible: { opacity: 1, y: 0 },
+};
+
 function Home({ setActiveSection }) {
-  const [startSubtitle, setStartSubtitle] = useState(false);
   const [startParagraph, setStartParagraph] = useState(false);
+  const [startBadges, setStartBadges] = useState(false);
   const headingTimeout = React.useRef(null);
-  const subtitleTimeout = React.useRef(null);
+  const paragraphTimeout = React.useRef(null);
 
   // TypingText component: types the provided text when `start` is true and calls `onComplete` when done.
   function TypingText({ text, speed = 40, start = false, className = '', onComplete, highlight }) {
@@ -65,29 +77,32 @@ function Home({ setActiveSection }) {
   useEffect(() => {
     return () => {
       if (headingTimeout.current) clearTimeout(headingTimeout.current);
-      if (subtitleTimeout.current) clearTimeout(subtitleTimeout.current);
+      if (paragraphTimeout.current) clearTimeout(paragraphTimeout.current);
     };
   }, []);
 
   const handleHeadingComplete = () => {
-    // wait 2 seconds before starting subtitle (user-requested)
-    headingTimeout.current = setTimeout(() => setStartSubtitle(true), 350);
+    headingTimeout.current = setTimeout(() => setStartParagraph(true), 300);
   };
 
-  const handleSubtitleComplete = () => {
-    subtitleTimeout.current = setTimeout(() => setStartParagraph(true), 350);
+  const handleParagraphComplete = () => {
+    paragraphTimeout.current = setTimeout(() => setStartBadges(true), 250);
   };
+
   return (
   <div id="home" className="hero">
       <div className="hero-left">
-        <motion.img
-          src={profileImage}
-          alt="Profile"
-          className="profile-image"
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        />
+        <div className="hero-blob" aria-hidden="true" />
+        <div className="profile-frame">
+          <motion.img
+            src={profileImage}
+            alt="Profile"
+            className="profile-image"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          />
+        </div>
       </div>
 
       <div className="hero-right">
@@ -96,7 +111,6 @@ function Home({ setActiveSection }) {
             text={"Hello, I'm Sanjyot Amritkar"}
             speed={40}
             start={true}
-            
             onComplete={handleHeadingComplete}
             className="heading-typing"
           />
@@ -104,22 +118,26 @@ function Home({ setActiveSection }) {
 
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
           <TypingText
-            text={"I’m a passionate problem-solver with experience in building impactful solutions using AI, Machine Learning, and Software Engineering. Welcome to my portfolio!"}
-            speed={22}
+            text={"I'm an AI & software engineer and data scientist who builds intelligent systems that solve real problems, from AI-powered healthcare tools to enterprise-scale platforms."}
+            speed={18}
             start={startParagraph}
+            onComplete={handleParagraphComplete}
             className="paragraph-typing"
           />
         </motion.p>
 
-        <motion.h2 initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <TypingText
-            text={'Data Science | AI/ML | Software Engineering and Development'}
-            speed={30}
-            start={startSubtitle}
-            onComplete={handleSubtitleComplete}
-            className="subheading-typing"
-          />
-        </motion.h2>
+        <motion.div
+          className="role-badges"
+          initial="hidden"
+          animate={startBadges ? "visible" : "hidden"}
+          variants={badgeContainer}
+        >
+          {roles.map((role) => (
+            <motion.span className="role-badge" key={role} variants={badgeItem}>
+              {role}
+            </motion.span>
+          ))}
+        </motion.div>
 
         <div className="hero-buttons">
           {/* Change href to button that triggers setActiveSection */}
@@ -131,6 +149,7 @@ function Home({ setActiveSection }) {
             Download Resume
           </a>
         </div>
+
       </div>
     </div>
   );

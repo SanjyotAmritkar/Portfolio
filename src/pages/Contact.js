@@ -1,18 +1,23 @@
 import React from 'react';
+import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import './Contact.css';
 
 function Contact() {
   return (
     <section id="contact" className="contact-section">
-      <div className="container">
+      <div className="contact-container">
         <h2 className="section-title">Contact Me</h2>
         <p className="contact-text">
           I'm always open to discussing projects, collaborations, or opportunities.
         </p>
 
         <div className="contact-links">
-          <a href="mailto:sanjyotamritkar05@gmail.com" className="contact-btn">Email Me</a>
-          <a href="https://www.linkedin.com/in/sanjyot-amritkar/" target="_blank" rel="noreferrer" className="contact-btn">LinkedIn</a>
+          <a href="mailto:sanjyotamritkar05@gmail.com" className="contact-btn">
+            <FaEnvelope /> Email Me
+          </a>
+          <a href="https://www.linkedin.com/in/sanjyot-amritkar/" target="_blank" rel="noreferrer" className="contact-btn">
+            <FaLinkedin /> LinkedIn
+          </a>
         </div>
 
         <form name="contact" method="POST" data-netlify="true" className="contact-form">

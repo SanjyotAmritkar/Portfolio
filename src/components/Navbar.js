@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 
-const Navbar = ({ activeSection, setActiveSection, darkMode, toggleDarkMode }) => {
+const Navbar = ({ activeSection, setActiveSection }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Hide navbar on scroll down, show on scroll up
+  // Hide navbar on scroll down, show on scroll up; also track scroll progress
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -16,6 +17,9 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, toggleDarkMode }) =
         setHidden(false); // show
       }
       setLastScrollY(currentScrollY);
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? Math.min(100, (currentScrollY / docHeight) * 100) : 0);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -23,6 +27,7 @@ const Navbar = ({ activeSection, setActiveSection, darkMode, toggleDarkMode }) =
 
   return (
     <nav className={`navbar ${hidden ? "hidden" : ""}`}>
+      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
       <div className="logo">
         Sanjyot <span className="highlighted">Amritkar</span>
       </div>

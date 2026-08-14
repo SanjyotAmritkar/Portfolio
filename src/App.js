@@ -11,7 +11,6 @@ import VantaBackground from "./components/VantaBackground";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
-  const [darkMode, setDarkMode] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 850);
 
   // detect mobile view dynamically
@@ -34,25 +33,23 @@ function App() {
       case "skills":
         return <Skills />;
       default:
-        return <Home setActiveSection={setActiveSection} darkMode={darkMode} />;
+        return <Home setActiveSection={setActiveSection} />;
     }
   };
 
   return (
-    <div className={`App ${darkMode ? "dark-mode" : ""}`}>
+    <div className="App">
       <VantaBackground />
 
       <Navbar
         setActiveSection={setActiveSection}
         activeSection={activeSection}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
       />
 
       {/* For mobile: render all stacked sections */}
       {isMobile ? (
         <>
-          <Home setActiveSection={setActiveSection} darkMode={darkMode} />
+          <Home setActiveSection={setActiveSection} />
           <About />
           <Experience />
           <Skills />

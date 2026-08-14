@@ -4,7 +4,7 @@
   align-items: center;
   padding: 18px 40px;
   height: 70px; /* define height for spacing consistency */
-  
+
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -16,6 +16,16 @@
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4); /* adjusted shadow for dark bg */
 }
 
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--accent-gradient);
+  transition: width 120ms linear;
+}
+
 .navbar a,
 .navbar button {
   color: #4dc3ff; /* links/buttons inside navbar */
@@ -24,7 +34,6 @@
 .logo {
   font-size: 1.6rem;
   font-weight: 700;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 .logo .highlighted {
@@ -45,6 +54,7 @@
 
 .nav-links li button,
 .nav-links li a {
+  position: relative;
   background: none;
   border: none;
   font-size: 1.2rem; /* slightly larger again */
@@ -56,59 +66,38 @@
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+.nav-links li button::after,
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 4px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
 .nav-links li button:hover,
 .nav-links li a:hover {
-  background-color: var(--hover-bg);
+  background-color: var(--glass-bg-strong);
   color: var(--accent);
+}
+
+.nav-links li button:hover::after,
+.nav-links li a:hover::after,
+.nav-links li .active::after {
+  transform: scaleX(1);
 }
 
 .nav-links li .active {
-  background-color: var(--hover-bg);
+  background-color: var(--glass-bg-strong);
   color: var(--accent);
-  box-shadow: 0 4px 14px rgba(71,176,240,0.12);
+  box-shadow: var(--shadow-sm);
   transform: translateY(-2px);
-}
-
-/* Toggle Switch */
-.toggle-switch {
-  position: relative;
-  width: 45px;
-  height: 24px;
-  display: inline-block;
-}
-
-.toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.toggle-switch .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0; left: 0;
-  right: 0; bottom: 0;
-  background-color: #ccc;
-  border-radius: 24px;
-  transition: 0.3s;
-}
-
-.toggle-switch .slider:before {
-  content: "";
-  position: absolute;
-  height: 18px; width: 18px;
-  left: 3px; bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: 0.3s;
-}
-
-.toggle-switch input:checked + .slider {
-  background-color: #007acc;
-}
-
-.toggle-switch input:checked + .slider:before {
-  transform: translateX(21px);
 }
 
 @media (max-width: 900px) {
@@ -137,9 +126,12 @@ z-index: 1000; /* not sticky on small screens */
   .nav-links li button,
   .nav-links li a {
     font-size: 1rem;
-    padding: 10px 8px;
+    padding: 12px 8px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
-  
+
   .logo {
     font-size: 1.4rem;
   }

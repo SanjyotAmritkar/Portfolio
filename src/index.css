@@ -2,3 +2,25 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --font-heading: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* glass card system - shared across all sections */
+  --glass-bg: rgba(255, 255, 255, 0.055);
+  --glass-bg-strong: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 10px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.14);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.18);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.24);
+
+  --accent-gradient: linear-gradient(135deg, #47b0f0 0%, #7a6ff0 100%);
+  --accent-glow: 0 8px 22px rgba(71, 176, 240, 0.35);
+}
+
