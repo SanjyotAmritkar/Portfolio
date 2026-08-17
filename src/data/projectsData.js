@@ -10,6 +10,7 @@ import crimeTrendsImage from "../assets/projects/crime-trends.jpg";
 import fraudPrivacyImage from "../assets/projects/fraud-privacy.jpg";
 import licensePlateImage from "../assets/projects/license-plate.jpg";
 import marketArbitrageImage from "../assets/projects/market-arbitrage.jpg";
+import supplySenseImage from "../assets/projects/supplysense.svg";
 
 const projectsData = [
   {
@@ -47,6 +48,17 @@ const projectsData = [
     demo: "",
     image: ecommerceRagImage,
     featured: true,
+  },
+  {
+    title: "SupplySense",
+    subtitle: "Demand forecasting & inventory planning platform",
+    description:
+      "Built scalable demand-forecasting pipelines that combine weather patterns, supplier lead times, and operational metrics with LSTM-based time-series models. Automated ETL, validation, and real-time reporting workflows deliver practical planning insights and reduced inventory stockouts by 35%.",
+    highlights: ["35% fewer inventory stockouts", "LSTM demand forecasting", "Real-time operational analytics"],
+    tech: ["Python", "Pandas", "SQL", "LSTM", "Apache Airflow", "AWS Lambda", "REST APIs"],
+    github: "",
+    demo: "",
+    image: supplySenseImage,
   },
   // {
   //   title: "ChronicleAI",

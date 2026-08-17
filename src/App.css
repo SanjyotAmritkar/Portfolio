@@ -79,17 +79,15 @@ section {
   scroll-margin-top: 80px; /* adds space when scrolling to a section */
 }
 
-/* Prevent hero content from hiding under fixed navbar */
-.hero,
-.home-section,
-section:first-of-type {
-  padding-top: 90px; /* adjust based on navbar height */
-}
+/* Note: the desktop navbar is position:sticky, so it already occupies its
+   own space in normal flow - sections don't need extra padding to "clear"
+   it. Each section sets its own (consistent, modest) padding-top below. */
 
-
-/* On smaller devices, increase slightly since navbar becomes taller */
-@media (max-width: 900px) {
+/* Below 850px the navbar switches to position:fixed (see Navbar.css) and is
+   exactly 56px tall, so it no longer occupies flow space - compensate here,
+   matching both the same breakpoint and the same height exactly. */
+@media (max-width: 850px) {
   .App {
-    padding-top: 100px;
+    padding-top: 56px;
   }
 }

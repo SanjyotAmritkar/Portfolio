@@ -1,9 +1,11 @@
 .experience-section {
-  padding: 80px 60px;
-  /* translucent card like other pages so Vanta background shows through */
-  background-color: var(--glass-bg);
+  padding: 40px 60px 80px;
+  /* barely-there tint + light blur, so the network background stays visible
+     through the panel - definition comes from the border/shadow, not the fill */
+  background-color: rgba(255, 255, 255, 0.065);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--text);
-  backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(5px);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   animation: exp-fade-in 0.7s ease-in-out;

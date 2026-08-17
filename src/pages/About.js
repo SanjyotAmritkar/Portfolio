@@ -9,19 +9,16 @@ const achievements = [
     title: "President – IGSA",
     description: "Indian Graduate Student Association: Led graduate student initiatives at Stony Brook University",
     icon: <FaCrown />,
-    featured: true,
   },
   {
     title: "Python Tutor – Stony Brook University CSTEP",
     description: "Mentored and taught foundational Python concepts to undergrads",
     icon: <FaChalkboardTeacher />,
-    featured: true,
   },
   {
     title: "Head – TEDx CCOEW",
     description: "Led 50-member team in content, editorial & marketing team",
     icon: <FaMicrophone />,
-    featured: true,
   },
   {
     title: "Citi Bridge 2022 – Citi Bank",
@@ -49,9 +46,6 @@ const achievements = [
     icon: <FaCogs />,
   },
 ];
-
-const featuredAchievements = achievements.filter((a) => a.featured);
-const compactAchievements = achievements.filter((a) => !a.featured);
 
 const beats = [
   {
@@ -114,29 +108,16 @@ function About() {
             </div>
           </div>
 
-
-        </div>
-
-        {/* Achievements Full Width Below */}
-        <div className="about-grid">
-          <div className="about-box full-width">
+          {/* Achievements */}
+          <div className="about-box achievements-box">
             <h3>Achievements & Leadership</h3>
 
-            <div className="achievement-featured-grid">
-              {featuredAchievements.map((a) => (
-                <div className="achievement-card featured" key={a.title}>
+            <div className="achievement-grid">
+              {achievements.map((a) => (
+                <div className="achievement-card" key={a.title}>
                   <span className="achievement-icon">{a.icon}</span>
                   <h4>{a.title}</h4>
                   <p>{a.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="achievement-compact-list">
-              {compactAchievements.map((a) => (
-                <div className="achievement-pill" key={a.title} title={a.description}>
-                  <span className="pill-icon">{a.icon}</span>
-                  <span className="pill-title">{a.title}</span>
                 </div>
               ))}
             </div>

@@ -7,7 +7,7 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
-import VantaBackground from "./components/VantaBackground";
+import AuroraBackground from "./components/AuroraBackground";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <VantaBackground />
+      <AuroraBackground />
 
       <Navbar
         setActiveSection={setActiveSection}

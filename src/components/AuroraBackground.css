@@ -1,0 +1,72 @@
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(ellipse 120% 80% at 50% -10%, #0b1c38 0%, #051025 55%, #030a18 100%);
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  will-change: transform;
+}
+
+.aurora-blob--1 {
+  top: -12%;
+  left: -8%;
+  width: 46vw;
+  height: 46vw;
+  background: #47b0f0;
+  opacity: 0.28;
+  animation: aurora-drift-1 28s ease-in-out infinite;
+}
+
+.aurora-blob--2 {
+  bottom: -18%;
+  right: -12%;
+  width: 52vw;
+  height: 52vw;
+  background: #7a6ff0;
+  opacity: 0.24;
+  animation: aurora-drift-2 34s ease-in-out infinite;
+}
+
+.aurora-blob--3 {
+  top: 38%;
+  right: 12%;
+  width: 30vw;
+  height: 30vw;
+  background: #22d3ee;
+  opacity: 0.14;
+  animation: aurora-drift-3 24s ease-in-out infinite;
+}
+
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4%, 5%) scale(1.08); }
+}
+
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-5%, -4%) scale(1.06); }
+}
+
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-4%, 4%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .aurora-blob {
+    filter: blur(70px);
+  }
+}

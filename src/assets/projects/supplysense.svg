@@ -1,0 +1,62 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="background" x1="94" y1="84" x2="1106" y2="740" gradientUnits="userSpaceOnUse"><stop stop-color="#E6FBF6"/><stop offset="1" stop-color="#B7E4E2"/></linearGradient>
+    <linearGradient id="table" x1="101" y1="314" x2="991" y2="720" gradientUnits="userSpaceOnUse"><stop stop-color="#FDFEF9"/><stop offset="1" stop-color="#CBE8E2"/></linearGradient>
+    <linearGradient id="tealTop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9AF0E4"/><stop offset="1" stop-color="#37BEB6"/></linearGradient>
+    <linearGradient id="violetTop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B4A0E9"/><stop offset="1" stop-color="#6E55BC"/></linearGradient>
+    <linearGradient id="orangeTop" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFD69A"/><stop offset="1" stop-color="#EB8D50"/></linearGradient>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#25595C" flood-opacity=".22"/></filter>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="1200" height="800" rx="40" fill="url(#background)"/>
+  <circle cx="1065" cy="96" r="178" fill="#9AE7DC" opacity=".44"/>
+  <circle cx="110" cy="714" r="206" fill="#BDAEEC" opacity=".18"/>
+  <g opacity=".22" stroke="#489F9B" stroke-width="2"><path d="M0 93H1200M0 187H1200M0 281H1200M0 375H1200M0 469H1200M0 563H1200"/><path d="M120 0V800M240 0V800M360 0V800M480 0V800M600 0V800M720 0V800M840 0V800M960 0V800M1080 0V800"/></g>
+  <ellipse cx="599" cy="650" rx="484" ry="92" fill="#2E7376" opacity=".16" filter="url(#soft)"/>
+  <g filter="url(#shadow)">
+    <path d="M106 481L609 255L1096 474L592 726L106 481Z" fill="url(#table)"/>
+    <path d="M106 481L592 726V755L106 509V481Z" fill="#A7D7D1"/>
+    <path d="M592 726L1096 474V502L592 755V726Z" fill="#8DC5C3"/>
+  </g>
+  <!-- supplier depot / inventory -->
+  <g filter="url(#shadow)">
+    <path d="M164 451L386 349L556 423L336 534L164 451Z" fill="#FCFBF4"/>
+    <path d="M164 451L336 534V653L164 569V451Z" fill="#DEC97F"/>
+    <path d="M336 534L556 423V541L336 653V534Z" fill="#CFAE57"/>
+    <path d="M196 449L386 366L522 425L335 520L196 449Z" fill="#FFF4CC"/>
+    <path d="M335 521V653" stroke="#AA8537" stroke-width="5"/>
+    <path d="M164 498L335 584L556 475" stroke="#B28E43" stroke-width="4" opacity=".6"/>
+    <path d="M252 421V558M430 405V486" stroke="#B28E43" stroke-width="4" opacity=".6"/>
+  </g>
+  <!-- stacked product cartons -->
+  <g filter="url(#shadow)">
+    <path d="M230 437L283 409L338 435L284 465L230 437Z" fill="url(#orangeTop)"/><path d="M230 437L284 465V527L230 498V437Z" fill="#D87047"/><path d="M284 465L338 435V496L284 527V465Z" fill="#F1A765"/>
+    <path d="M348 488L401 460L456 486L402 516L348 488Z" fill="url(#tealTop)"/><path d="M348 488L402 516V579L348 550V488Z" fill="#229B99"/><path d="M402 516L456 486V548L402 579V516Z" fill="#56CDC3"/>
+    <path d="M342 427L395 399L450 425L396 455L342 427Z" fill="url(#violetTop)"/><path d="M342 427L396 455V516L342 488V427Z" fill="#6049AE"/><path d="M396 455L450 425V486L396 516V455Z" fill="#8873CF"/>
+  </g>
+  <!-- demand planning dashboard -->
+  <g filter="url(#shadow)">
+    <path d="M607 439L826 330L1016 421L793 540L607 439Z" fill="#FFFFFF"/>
+    <path d="M607 439L793 540V656L607 555V439Z" fill="#D3E7E5"/>
+    <path d="M793 540L1016 421V537L793 656V540Z" fill="#B7D7D5"/>
+    <path d="M637 438L826 346L983 421L794 523L637 438Z" fill="#193E57"/>
+    <path d="M671 449L719 426L763 447L715 472L671 449Z" fill="#344F94"/><path d="M731 419L779 396L823 417L775 442L731 419Z" fill="#425EAB"/><path d="M791 388L839 365L883 386L835 411L791 388Z" fill="#5270BE"/>
+    <path d="M661 466C704 434 729 466 768 428C812 385 847 431 886 384C919 343 938 358 964 334" stroke="#61E2D4" stroke-width="11" stroke-linecap="round" fill="none"/>
+    <g fill="#D9FFF9"><circle cx="661" cy="466" r="8"/><circle cx="768" cy="428" r="8"/><circle cx="886" cy="384" r="8"/><circle cx="964" cy="334" r="8"/></g>
+    <rect x="680" y="486" width="94" height="9" rx="4.5" fill="#80A7C0"/><rect x="680" y="504" width="57" height="7" rx="3.5" fill="#507B99"/>
+  </g>
+  <!-- automated flow path -->
+  <path d="M406 405C475 333 525 375 580 410C633 444 649 434 686 415" stroke="#F4B84B" stroke-width="14" stroke-linecap="round" stroke-dasharray="6 22"/>
+  <path d="M677 403L707 406L689 430" stroke="#F4B84B" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- weather signal -->
+  <g transform="translate(853 157)" filter="url(#shadow)">
+    <circle cx="60" cy="57" r="31" fill="#FFC65A"/>
+    <g stroke="#FFC65A" stroke-width="8" stroke-linecap="round"><path d="M60 7V0M60 114V107M10 57H0M120 57H110M24 21L17 14M96 93L103 100M96 21L103 14M24 93L17 100"/></g>
+    <path d="M43 103C22 103 21 72 44 70C54 47 91 52 96 76C120 78 121 103 101 103H43Z" fill="#F7FFFF" stroke="#A9D8D9" stroke-width="4"/>
+  </g>
+  <!-- supplier vehicle -->
+  <g transform="translate(139 243)" filter="url(#shadow)">
+    <path d="M0 73L80 34L157 70L76 112L0 73Z" fill="#A5EDE2"/><path d="M0 73L76 112V163L0 124V73Z" fill="#2FA59F"/><path d="M76 112L157 70V121L76 163V112Z" fill="#54C7BE"/>
+    <path d="M103 99L146 77V120L103 141V99Z" fill="#355E89"/><circle cx="38" cy="136" r="18" fill="#31465E"/><circle cx="38" cy="136" r="8" fill="#D6F2EE"/><circle cx="116" cy="136" r="18" fill="#31465E"/><circle cx="116" cy="136" r="8" fill="#D6F2EE"/>
+  </g>
+</svg>

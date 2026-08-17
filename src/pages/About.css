@@ -1,5 +1,5 @@
 .about-section {
-  padding: 60px 20px;
+  padding: 40px 20px 60px;
   background-color: var(--bg);
   text-align: center;
   animation: fadeIn 0.8s ease-in-out;
@@ -16,7 +16,7 @@
 }
 
 .intro-content {
-  max-width: 720px;
+  max-width: 1000px;
   margin: 0 auto 48px;
   text-align: left;
 }
@@ -27,6 +27,7 @@
   line-height: 1.25;
   color: var(--text);
   margin: 0 0 12px;
+  text-align: center;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -38,14 +39,16 @@
   font-weight: 500;
   line-height: 1.55;
   color: rgba(255,255,255,0.85);
-  margin: 0 0 36px;
+  margin: 0 auto 36px;
   max-width: 600px;
+  text-align: center;
 }
 
 .intro-beats {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px 24px;
+  align-items: start;
 }
 
 .intro-beat {
@@ -93,9 +96,18 @@
   justify-content: center;
 }
 
-/* when there are stacked about-grid sections, add extra spacing between them */
-.about-grid + .about-grid {
-  margin-top: 28px;
+/* Education sits in a narrower column, Achievements takes the rest */
+.horizontal-split {
+  align-items: stretch;
+}
+
+.horizontal-split .education-box {
+  flex: 1 1 320px;
+  max-width: 360px;
+}
+
+.horizontal-split .achievements-box {
+  flex: 2 1 480px;
 }
 
 .about-box {
@@ -188,47 +200,11 @@
 }
 
 
-.achievement-featured-grid {
+.achievement-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
   margin-top: 18px;
-}
-
-.achievement-compact-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 22px;
-  opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
-  animation-delay: 0.38s;
-}
-
-.achievement-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 13px 20px;
-  border-radius: 999px;
-  background-color: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.9);
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.achievement-pill:hover {
-  background-color: var(--glass-bg-strong);
-  border-color: rgba(71,176,240,0.35);
-  transform: translateY(-2px);
-}
-
-.pill-icon {
-  display: inline-flex;
-  color: var(--accent);
-  font-size: 1.1rem;
 }
 
 /* -------- Responsive About Section -------- */
@@ -250,17 +226,17 @@
     min-width: unset;
   }
 
-  .achievement-featured-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  .horizontal-split .education-box {
+    max-width: 90%;
+  }
+
+  .intro-beats {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .achievement-card {
-    padding: 16px 14px;
-    text-align: left;
-  }
-
   .intro-headline {
     font-size: 1.5rem;
   }
@@ -273,7 +249,7 @@
     font-size: 0.9rem;
   }
 
-  .achievement-featured-grid {
+  .achievement-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
@@ -288,8 +264,8 @@
   background-color: var(--glass-bg);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(var(--glass-blur));
-  padding: 18px 20px;
-  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
   transform: translateY(20px);
   opacity: 0;
@@ -307,19 +283,25 @@
 .achievement-icon {
   display: inline-grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
   background: rgba(71,176,240,0.14);
   color: var(--accent);
-  font-size: 1.1rem;
-  margin-bottom: 12px;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
 }
 
-/* stagger delay so the 3 featured cards appear one after another */
-.achievement-featured-grid .achievement-card:nth-child(1) { animation-delay: 0.08s; }
-.achievement-featured-grid .achievement-card:nth-child(2) { animation-delay: 0.18s; }
-.achievement-featured-grid .achievement-card:nth-child(3) { animation-delay: 0.28s; }
+/* stagger delay so the cards appear one after another */
+.achievement-grid .achievement-card:nth-child(1) { animation-delay: 0.06s; }
+.achievement-grid .achievement-card:nth-child(2) { animation-delay: 0.12s; }
+.achievement-grid .achievement-card:nth-child(3) { animation-delay: 0.18s; }
+.achievement-grid .achievement-card:nth-child(4) { animation-delay: 0.24s; }
+.achievement-grid .achievement-card:nth-child(5) { animation-delay: 0.3s; }
+.achievement-grid .achievement-card:nth-child(6) { animation-delay: 0.36s; }
+.achievement-grid .achievement-card:nth-child(7) { animation-delay: 0.42s; }
+.achievement-grid .achievement-card:nth-child(8) { animation-delay: 0.48s; }
+.achievement-grid .achievement-card:nth-child(n+9) { animation-delay: 0.54s; }
 
 @keyframes fadeUp {
   from {
@@ -343,17 +325,17 @@
 /* enhance title and paragraph contrast */
 .achievement-card h4 {
   color: var(--accent);
-  font-size: 1.05rem;
-  margin-bottom: 10px;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  margin-bottom: 6px;
 }
 
 .achievement-card p {
-  color: rgba(255,255,255,0.88);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  color: rgba(255,255,255,0.82);
+  font-size: 0.82rem;
+  line-height: 1.42;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .achievement-card { animation: none; opacity: 1; transform: none; }
-  .achievement-compact-list { animation: none; opacity: 1; }
 }

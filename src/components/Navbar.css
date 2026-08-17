@@ -2,18 +2,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 40px;
-  height: 70px; /* define height for spacing consistency */
+  padding: 12px 40px;
+  height: 60px; /* define height for spacing consistency */
 
   position: sticky;
   top: 0;
   z-index: 1000;
 
-  background: rgba(0, 0, 0, 0.85); /* dark semi-transparent background (better on Vanta) */
-  backdrop-filter: blur(4px);      /* glass effect */
+  /* same navy-tinted glass system used by every card on the site, instead of a flat black bar */
+  background: rgba(5, 16, 37, 0.72);
+  backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border);
   color: #ffffff;
 
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4); /* adjusted shadow for dark bg */
+  box-shadow: var(--shadow-sm);
 }
 
 .scroll-progress {
@@ -32,7 +34,7 @@
 }
 
 .logo {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 
@@ -57,12 +59,13 @@
   position: relative;
   background: none;
   border: none;
-  font-size: 1.2rem; /* slightly larger again */
+  font-size: 1.12rem;
   font-weight: 500;
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 8px 14px;
   border-radius: 6px;
   color: var(--text);
+  text-decoration: none;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -99,44 +102,6 @@
   box-shadow: var(--shadow-sm);
   transform: translateY(-2px);
 }
-
-@media (max-width: 900px) {
-  .navbar {
-    position: fixed;
-top: 0;
-width: 100%;
-z-index: 1000; /* not sticky on small screens */
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 15px 25px;
-    background: rgba(0, 0, 0, 0.92);
-    backdrop-filter: blur(6px);
-    gap: 20px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .nav-links li button,
-  .nav-links li a {
-    font-size: 1rem;
-    padding: 12px 8px;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .logo {
-    font-size: 1.4rem;
-  }
-}
-
 
 /* Hide navbar when scrolling down */
 .navbar.hidden {
@@ -175,27 +140,43 @@ z-index: 1000; /* not sticky on small screens */
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* Mobile Menu */
+/* Mobile Menu: navbar collapses to a slim bar (logo + hamburger only),
+   nav links move into a slide-in panel. One breakpoint, so there's no gap
+   between "navbar wraps" and "hamburger appears". */
 @media (max-width: 850px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    padding: 0 20px;
+    z-index: 1000;
+  }
+
+  .logo {
+    font-size: 1.25rem;
+  }
+
   .hamburger {
     display: flex;
   }
 
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 56px;
     right: -100%;
-    width: 70%;
-    height: calc(100vh - 70px);
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(8px);
+    width: min(75%, 320px);
+    height: calc(100vh - 56px);
+    background: rgba(5, 16, 37, 0.94);
+    backdrop-filter: blur(var(--glass-blur));
     flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    padding-top: 40px;
-    gap: 20px;
-    transition: right 0.4s ease;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 24px 16px;
+    gap: 8px;
+    transition: right 0.35s ease;
     z-index: 1000;
+    overflow-y: auto;
   }
 
   .nav-links.active {
@@ -204,14 +185,28 @@ z-index: 1000; /* not sticky on small screens */
 
   .nav-links li {
     display: block;
+    width: 100%;
   }
 
-  .nav-links li button {
-    font-size: 1.2rem;
+  .nav-links li button,
+  .nav-links li a {
+    width: 100%;
+    font-size: 1.05rem;
+    padding: 13px 16px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     color: #fff;
   }
 
-  .navbar {
-    padding: 14px 24px;
+  .nav-links li button::after,
+  .nav-links li a::after {
+    display: none;
+  }
+
+  .nav-links li .active {
+    background-color: var(--glass-bg-strong);
+    color: var(--accent);
+    transform: none;
   }
 }

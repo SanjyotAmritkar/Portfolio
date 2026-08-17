@@ -1,5 +1,8 @@
 .skills-section {
-  padding: 5rem 2.5rem;
+  /* top is lower than the other sides since .container below adds its own
+     24px (1.5rem) of internal top padding - together they total 40px,
+     matching the top gap used by every other section */
+  padding: 16px 2.5rem 5rem;
   /* keep the section neutral so we can surface a translucent centered container */
   background: transparent;
   color: var(--text);
@@ -100,5 +103,23 @@
   .skills-container { max-width: 100%; }
   .skill-card { padding: 0.85rem; }
   .skill-card .icon { font-size: 1.6rem; margin-bottom: 0.4rem; }
-  .tab-btn { padding: 0.85rem 1.3rem; min-height: 44px; }
+
+  /* 7 category labels of very different lengths wrap unevenly on narrow
+     screens - scroll horizontally instead, same pattern as the Experience tabs */
+  .tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+
+  .tab-btn {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    padding: 0.85rem 1.3rem;
+    min-height: 44px;
+    white-space: nowrap;
+  }
 }

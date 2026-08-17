@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 40px;
+  padding: 40px 40px 80px;
   /* translucent card like every other section, so the Vanta background shows through */
   background-color: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -20,16 +20,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: float 5s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-left { animation: none; }
 }
 
 /* soft blurred glow behind the photo for depth */
@@ -104,28 +94,6 @@
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 0.3rem;
-}
-
-.heading-typing {
-  white-space: pre-wrap;
-}
-
-.paragraph-typing {
-  white-space: pre-wrap;
-  font-size: 1.15rem; /* increase paragraph font as requested */
-}
-
-.typing-cursor {
-  display: inline-block;
-  width: 1px;
-  background-color: currentColor;
-  margin-left: 3px;
-  animation: typing-blink 1s steps(1,start) infinite;
-  vertical-align: bottom;
-}
-
-@keyframes typing-blink {
-  50% { opacity: 0; }
 }
 
 .hero-right h1 .highlighted {
@@ -230,10 +198,10 @@
 
 /* -------- Responsive Home Section -------- */
 
+/* layout switches to stacked (photo above text) before the padding tier changes */
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;
-    padding: 60px 20px;
     gap: 35px;
   }
 
@@ -255,12 +223,18 @@
   }
 }
 
+/* same 900px padding tier every other section uses (50px top, consistent gap under navbar) */
+@media (max-width: 900px) {
+  .hero {
+    padding: 50px 20px;
+    border-radius: 10px; /* keep the same rounded-card language as every other section */
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
-    flex-direction: column;
     text-align: center;
     padding: 50px 15px;
-    border-radius: 0; /* for full-bleed look on mobile */
   }
 
   .hero-right h1 {
@@ -269,7 +243,9 @@
 
   .hero-right p {
     font-size: 0.95rem;
-    margin: 0 1rem 1.2rem;
+    /* no extra side margin - let the section's own padding set the inset,
+       same as the heading and buttons above/below it */
+    margin: 0 0 1.2rem;
   }
 
   .role-badge {
@@ -285,5 +261,24 @@
   .primary, .secondary {
     width: 80%;
     max-width: 260px;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero {
+    padding: 44px 12px;
+  }
+
+  .hero-right h1 {
+    font-size: 1.5rem;
+  }
+
+  .profile-frame {
+    max-width: 190px;
+  }
+
+  .hero-blob {
+    width: 230px;
+    height: 230px;
   }
 }
