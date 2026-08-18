@@ -1,8 +1,21 @@
+/* fills the viewport below the sticky navbar so the hero card centers
+   vertically instead of sitting near the top with empty space below it.
+   85px = navbar's actual rendered height (60px content-box height + its
+   12px top/bottom padding + 1px border - Navbar.css has no box-sizing:
+   border-box, so padding adds on top of the declared 60px). Using the
+   declared 60px here undercounts it and forces a spurious scrollbar. */
+.home-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 85px);
+}
+
 .hero {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 40px 80px;
+  padding: 70px 80px 100px;
   /* translucent card like every other section, so the Vanta background shows through */
   background-color: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -10,13 +23,15 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 60px;
+  width: 92%;
+  max-width: 1400px;
 }
 
 .hero-left {
   position: relative;
   flex: 1;
-  max-width: 350px;
+  max-width: 420px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,8 +42,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 340px;
-  height: 340px;
+  width: 380px;
+  height: 380px;
   max-width: 90%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
@@ -43,7 +58,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 280px;
+  max-width: 320px;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
   border-radius: 50%;
@@ -86,7 +101,7 @@
 
 .hero-right {
   flex: 2;
-  max-width: 700px;
+  max-width: 820px;
   text-align: center;
 }
 
@@ -124,7 +139,7 @@
 }
 
 .hero-right h1 {
-  font-size: 3rem;
+  font-size: 3.4rem;
   font-weight: 700;
   margin-bottom: 0.3rem;
 }
@@ -140,9 +155,9 @@
 }
 
 .hero-right p {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   line-height: 1.7;
-  max-width: 700px;
+  max-width: 780px;
   /* add spacing above the paragraph so it sits further from the headings */
   margin: 1rem auto 1.5rem;
   color: var(--text);
@@ -253,6 +268,16 @@
   .hero-blob {
     width: 280px;
     height: 280px;
+  }
+}
+
+/* below this width App.js stacks all sections for scrolling (isMobile),
+   so the hero shouldn't claim a full viewport height here - let it size
+   to its own content like every other stacked section */
+@media (max-width: 850px) {
+  .home-page {
+    min-height: auto;
+    display: block;
   }
 }
 

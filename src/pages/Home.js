@@ -17,7 +17,8 @@ const badgeItem = {
 
 function Home({ setActiveSection }) {
   return (
-  <div id="home" className="hero">
+  <div className="home-page">
+    <div id="home" className="hero">
       <div className="hero-left">
         <div className="hero-blob" aria-hidden="true" />
         <div className="profile-frame">
@@ -68,7 +69,19 @@ function Home({ setActiveSection }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.75 }}
         >
-          <button className="primary" onClick={() => setActiveSection("projects")}>
+          <button
+            className="primary"
+            onClick={() => {
+              // On mobile all sections are already stacked on one page, so
+              // switching state does nothing visible - scroll to it instead.
+              if (window.innerWidth <= 850) {
+                const target = document.getElementById("projects");
+                if (target) target.scrollIntoView({ behavior: "smooth" });
+              } else {
+                setActiveSection("projects");
+              }
+            }}
+          >
             View Projects
           </button>
 
@@ -89,6 +102,7 @@ function Home({ setActiveSection }) {
 
       </div>
     </div>
+  </div>
   );
 }
 

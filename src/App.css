@@ -49,9 +49,14 @@ html {
   z-index: -1; /* ensures background stays behind content */
   overflow: hidden;     /* prevents scroll bleed */
 }
-/* Ensure sections don’t re-center the background */
+/* Ensure sections don't re-center the background.
+   No explicit height here: the aurora background is position:fixed (viewport-relative,
+   doesn't need html/body to be 100% tall), and locking both to 100% here combined with
+   overflow-x:hidden was turning `body` into its own nested scroll container (the CSS spec
+   auto-promotes the non-hidden axis to `overflow-y: auto` when the other is `hidden`) -
+   split from `window` scroll, which silently broke window.scrollY-based navbar behavior
+   and framer-motion's whileInView scroll reveals. */
 html, body {
-  height: 100%;
   margin: 0;
   overflow-x: hidden;
 }
