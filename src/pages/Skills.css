@@ -28,7 +28,8 @@
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(4px);
-  padding: 0.7rem 1.3rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.08rem;
   font-weight: 600;
   cursor: pointer;
   border-radius: 8px;

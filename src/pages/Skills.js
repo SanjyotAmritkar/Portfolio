@@ -7,7 +7,8 @@ import {
   FaPlug, FaCubes, FaLayerGroup, FaChartBar, FaGitAlt, FaInfinity,
   FaProjectDiagram, FaSearch, FaBrain, FaCommentDots, FaCloud, FaRobot,
   FaVectorSquare, FaLanguage, FaEye, FaCamera, FaLightbulb, FaChartLine,
-  FaChartArea, FaChartPie, FaSquareRootAlt, FaGlasses,
+  FaChartArea, FaChartPie, FaSquareRootAlt, FaGlasses, FaWaveSquare,
+  FaUserShield,
 } from 'react-icons/fa';
 import {
   SiSpringboot, SiMongodb, SiPostgresql, SiScikitlearn, SiTensorflow, SiPandas,
@@ -16,7 +17,7 @@ import {
   SiPytorch, SiHuggingface, SiLangchain, SiRedis, SiGooglecloud, SiJenkins,
   SiTerraform, SiExpress, SiAngular, SiVite, SiTailwindcss, SiOpencv,
   SiD3Dotjs, SiSonarqube, SiJunit5, SiFirebase, SiStreamlit, SiOpenai,
-  SiMeta, SiOllama,
+  SiMeta, SiOllama, SiApacheairflow, SiPrisma,
 } from 'react-icons/si';
 
 const skills = {
@@ -61,6 +62,8 @@ const skills = {
       { name: 'Computer Vision', icon: <FaEye /> },
       { name: 'OpenCV', icon: <SiOpencv /> },
       { name: 'YOLOv5', icon: <FaCamera /> },
+      { name: 'LSTM', icon: <FaWaveSquare /> },
+      { name: 'Differential Privacy', icon: <FaUserShield /> },
     ],
   },
   "Generative AI": {
@@ -76,6 +79,7 @@ const skills = {
       { name: 'GPT-4', icon: <SiOpenai /> },
       { name: 'LLaMA 3', icon: <SiMeta /> },
       { name: 'Mistral', icon: <FaRobot /> },
+      { name: 'Phi-3', icon: <FaRobot /> },
       { name: 'Ollama', icon: <SiOllama /> },
     ],
   },
@@ -85,6 +89,7 @@ const skills = {
       { name: 'Pandas', icon: <SiPandas /> },
       { name: 'Spark', icon: <SiApachespark /> },
       { name: 'Kafka', icon: <SiApachekafka /> },
+      { name: 'Apache Airflow', icon: <SiApacheairflow /> },
       { name: 'ETL', icon: <FaLayerGroup /> },
       { name: 'SQLAlchemy', icon: <SiSqlalchemy /> },
       { name: 'Tableau', icon: <SiTableau /> },
@@ -121,6 +126,7 @@ const skills = {
       { name: 'Jenkins', icon: <SiJenkins /> },
       { name: 'Terraform', icon: <SiTerraform /> },
       { name: 'SonarQube', icon: <SiSonarqube /> },
+      { name: 'Prisma', icon: <SiPrisma /> },
       { name: 'JUnit', icon: <SiJunit5 /> },
     ],
   },
