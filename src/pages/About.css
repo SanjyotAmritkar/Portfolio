@@ -47,46 +47,84 @@
 .intro-beats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px 24px;
-  align-items: start;
+  gap: 20px;
+  align-items: stretch;
 }
 
 .intro-beat {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px 20px;
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.intro-beat:hover {
+  transform: translateY(-4px);
+  background-color: var(--glass-bg-strong);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(71,176,240,0.3);
+}
+
+.beat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .beat-index {
   flex-shrink: 0;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
-  border-radius: 10px;
+  border-radius: 9px;
   background: rgba(71,176,240,0.12);
   color: var(--accent);
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 0.76rem;
   font-weight: 800;
 }
 
-.beat-copy {
-  min-width: 0;
-}
-
 .beat-label {
-  margin: 0 0 4px;
+  margin: 0;
   font-size: 1rem;
   font-weight: 700;
   color: var(--text);
 }
 
-.beat-text {
+.beat-list {
+  list-style: none;
   margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.beat-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.92rem;
+  line-height: 1.58;
   color: rgba(255,255,255,0.8);
+}
+
+.beat-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: rotate(45deg);
 }
 
 .about-grid {
@@ -245,8 +283,8 @@
     font-size: 1rem;
   }
 
-  .beat-text {
-    font-size: 0.9rem;
+  .beat-list li {
+    font-size: 0.88rem;
   }
 
   .achievement-grid {

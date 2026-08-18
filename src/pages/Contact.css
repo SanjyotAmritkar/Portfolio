@@ -106,6 +106,60 @@
   box-shadow: var(--accent-glow);
 }
 
+.contact-form button:disabled {
+  opacity: 0.7;
+  cursor: default;
+  transform: none;
+}
+
+.form-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-status--success {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px 22px;
+  background-color: var(--glass-bg);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow-md);
+  font-size: 1.4rem;
+  color: #34d399;
+}
+
+.form-status--success .form-status-title {
+  margin: 0 0 2px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.form-status--success .form-status-text {
+  margin: 0;
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.form-status--error {
+  padding: 10px 14px;
+  background-color: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #f87171;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
 .footer {
   margin-top: 50px;
   font-size: 0.9rem;

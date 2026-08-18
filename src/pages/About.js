@@ -50,15 +50,25 @@ const achievements = [
 const beats = [
   {
     label: "Where It Started",
-    text: "I started my career at Barclays, building backend systems that processed millions of financial records a day without a production incident, work that taught me to value reliability as much as functionality. That instinct is what eventually pulled me toward Stony Brook University for a Master's in Data Science: I wanted to understand the models I'd been shipping, not just call an API and move on.",
+    points: [
+      "I started my career at Barclays, building backend systems that processed millions of financial records a day without a production incident, work that taught me to value reliability as much as functionality.",
+      "That instinct is what eventually pulled me toward Stony Brook University for a Master's in Data Science: I wanted to understand the models I'd been shipping, not just call an API and move on.",
+    ],
   },
   {
     label: "Research Meets Industry",
-    text: "Since then I've worked on both sides of that gap. As a research assistant at Stony Brook, I helped build and ship an AI-assisted triage platform that emergency department staff use daily, a system with real uptime requirements and real clinicians depending on it. At Nextracker, I saw how a large engineering organization decides whether an LLM feature is worth shipping, and what it actually costs to run one at scale.",
+    points: [
+      "Since then I've worked on both sides of that gap.",
+      "As a research assistant at Stony Brook, I helped build and ship an AI-assisted triage platform that emergency department staff use daily, a system with real uptime requirements and real clinicians depending on it.",
+      "At Nextracker, I saw how a large engineering organization decides whether an LLM feature is worth shipping, and what it actually costs to run one at scale.",
+    ],
   },
   {
     label: "What Drives Me",
-    text: "I'm drawn to problems with real constraints, latency budgets, compliance requirements, a clinician who doesn't have time to read three paragraphs of model output. That's usually where the interesting engineering lives, and it's the kind of work I want to keep doing.",
+    points: [
+      "I'm drawn to problems with real constraints, latency budgets, compliance requirements, a clinician who doesn't have time to read three paragraphs of model output.",
+      "That's usually where the interesting engineering lives, and it's the kind of work I want to keep doing.",
+    ],
   },
 ];
 
@@ -78,11 +88,15 @@ function About() {
           <div className="intro-beats">
             {beats.map((beat, i) => (
               <div className="intro-beat" key={beat.label}>
-                <span className="beat-index">{String(i + 1).padStart(2, '0')}</span>
-                <div className="beat-copy">
+                <div className="beat-header">
+                  <span className="beat-index">{String(i + 1).padStart(2, '0')}</span>
                   <h4 className="beat-label">{beat.label}</h4>
-                  <p className="beat-text">{beat.text}</p>
                 </div>
+                <ul className="beat-list">
+                  {beat.points.map((point, j) => (
+                    <li key={j}>{point}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>

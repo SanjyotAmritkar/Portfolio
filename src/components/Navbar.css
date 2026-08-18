@@ -109,35 +109,44 @@
   transition: transform 0.4s ease;
 }
 
-/* Hamburger Icon */
+/* Hamburger Icon - 44x44 touch target with the visible icon centered inside it */
 .hamburger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
-  height: 18px;
+  position: relative;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   z-index: 1100;
+  flex-shrink: 0;
 }
 
 .hamburger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #4dc3ff;
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 2.5px;
+  background: #ffffff;
   border-radius: 2px;
-  transition: 0.3s ease;
+  transform: translateX(-50%);
+  transition: top 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
 }
 
-/* Hamburger animation when open */
+.hamburger span:nth-child(1) { top: 15px; }
+.hamburger span:nth-child(2) { top: 21px; }
+.hamburger span:nth-child(3) { top: 27px; }
+
+/* Hamburger animation when open - all three lines meet at the vertical
+   center, then rotate into an X */
 .hamburger.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  top: 21px;
+  transform: translateX(-50%) rotate(45deg);
 }
 .hamburger.open span:nth-child(2) {
   opacity: 0;
 }
 .hamburger.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  top: 21px;
+  transform: translateX(-50%) rotate(-45deg);
 }
 
 /* Mobile Menu: navbar collapses to a slim bar (logo + hamburger only),

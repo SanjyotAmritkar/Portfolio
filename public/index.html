@@ -4,11 +4,25 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#051025" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Sanjyot Amritkar — AI/ML and Software Engineer building production AI systems, from a clinical triage platform used daily by hospital staff to enterprise LLM tools. Data Science graduate student at Stony Brook University, previously a Software Developer at Barclays."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sanjyot Amritkar | AI/ML & Software Engineer" />
+    <meta
+      property="og:description"
+      content="AI/ML and Software Engineer building production AI systems, from a clinical triage platform used daily by hospital staff to enterprise LLM tools."
+    />
+    <meta property="og:image" content="%PUBLIC_URL%/logo512.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Sanjyot Amritkar | AI/ML & Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="AI/ML and Software Engineer building production AI systems, from a clinical triage platform used daily by hospital staff to enterprise LLM tools."
+    />
+    <meta name="twitter:image" content="%PUBLIC_URL%/logo512.png" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -30,10 +44,18 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Sanjyot Amritkar portfolio</title>
+    <title>Sanjyot Amritkar | AI/ML & Software Engineer</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Static snapshot of the contact form so Netlify's build-time bot can
+         detect it (it only scans this HTML, not the React app's output).
+         The real, interactive form lives in src/pages/Contact.js. -->
+    <form name="contact" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
     <div id="root"></div>
     <!--
       This HTML file is a template.

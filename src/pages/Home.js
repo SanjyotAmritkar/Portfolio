@@ -77,6 +77,16 @@ function Home({ setActiveSection }) {
           </a>
         </motion.div>
 
+        <motion.div
+          className="status-badge"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.95 }}
+        >
+          <span className="status-dot" aria-hidden="true" />
+          Open to full-time opportunities
+        </motion.div>
+
       </div>
     </div>
   );

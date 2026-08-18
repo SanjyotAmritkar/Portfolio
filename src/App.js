@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -8,6 +9,24 @@ import Contact from "./pages/Contact";
 import Experience from "./pages/Experience";
 import Skills from "./pages/Skills";
 import AuroraBackground from "./components/AuroraBackground";
+
+// Fades a mobile-stacked section in as it scrolls into view (once).
+function RevealSection({ children }) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) return children;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
@@ -46,18 +65,28 @@ function App() {
         activeSection={activeSection}
       />
 
-      {/* For mobile: render all stacked sections */}
+      {/* For mobile: render all stacked sections, each revealing on scroll */}
       {isMobile ? (
         <>
-          <Home setActiveSection={setActiveSection} />
-          <About />
-          <Experience />
-          <Skills />
-          <Projects />
-          <Contact />
+          <RevealSection><Home setActiveSection={setActiveSection} /></RevealSection>
+          <RevealSection><About /></RevealSection>
+          <RevealSection><Experience /></RevealSection>
+          <RevealSection><Skills /></RevealSection>
+          <RevealSection><Projects /></RevealSection>
+          <RevealSection><Contact /></RevealSection>
         </>
       ) : (
-        renderSection()
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSection}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.28, ease: "easeOut" }}
+          >
+            {renderSection()}
+          </motion.div>
+        </AnimatePresence>
       )}
     </div>
   );

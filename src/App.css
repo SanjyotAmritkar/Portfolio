@@ -62,7 +62,9 @@ html, body {
 }
 @media (max-width: 900px) {
   /* each section owns its own mobile padding (see that page's CSS);
-     this just gives every section a consistent slight inset on mobile */
+     this gives every section a consistent inset plus clear breathing room
+     between stacked sections, so consecutive sections read as distinct
+     "chapters" instead of one continuous, undifferentiated column */
   section,
   .hero,
   .about-section,
@@ -70,7 +72,7 @@ html, body {
   .projects-section,
   .skills-section,
   .contact-section {
-    margin: 20px auto;
+    margin: 40px auto;
     width: 90%;
   }
 }

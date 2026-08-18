@@ -90,6 +90,39 @@
   text-align: center;
 }
 
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 6px 14px 6px 10px;
+  border-radius: 999px;
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: #34d399;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+  animation: status-pulse 2.2s ease-out infinite;
+}
+
+@keyframes status-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot { animation: none; }
+}
+
 .hero-right h1 {
   font-size: 3rem;
   font-weight: 700;
@@ -255,12 +288,27 @@
 
   .hero-buttons {
     flex-direction: column;
-    gap: 14px;
+    /* column layout's cross-axis (horizontal) alignment isn't set anywhere
+       else, so it was defaulting to stretch/start - buttons rendered
+       left-aligned instead of centered under the heading */
+    align-items: center;
+    gap: 12px;
   }
 
   .primary, .secondary {
-    width: 80%;
-    max-width: 260px;
+    width: 70%;
+    max-width: 220px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* match the buttons' width/shape so the stack reads as one consistent
+     column instead of two wide blocks with a stray narrow pill under them */
+  .status-badge {
+    width: 70%;
+    max-width: 220px;
+    justify-content: center;
+    margin: 20px auto 0;
   }
 }
 
